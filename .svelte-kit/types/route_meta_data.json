@@ -1,0 +1,95 @@
+{
+	"/": [
+		"src/routes/+page.server.ts"
+	],
+	"/admin": [
+		"src/routes/admin/+page.server.ts",
+		"src/routes/admin/+layout.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/aportes": [
+		"src/routes/admin/aportes/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/aportes/nuevo": [
+		"src/routes/admin/aportes/nuevo/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/aportes/[id]": [
+		"src/routes/admin/aportes/[id]/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/auditoria": [
+		"src/routes/admin/auditoria/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/configuracion": [
+		"src/routes/admin/configuracion/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/donantes": [
+		"src/routes/admin/donantes/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/donantes/nuevo": [
+		"src/routes/admin/donantes/nuevo/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/donantes/[id]": [
+		"src/routes/admin/donantes/[id]/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/egresos": [
+		"src/routes/admin/egresos/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/egresos/nuevo": [
+		"src/routes/admin/egresos/nuevo/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/egresos/[id]": [
+		"src/routes/admin/egresos/[id]/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/login": [
+		"src/routes/admin/login/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/logout": [
+		"src/routes/admin/logout/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/reportes": [
+		"src/routes/admin/reportes/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/rubros": [
+		"src/routes/admin/rubros/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/usuarios": [
+		"src/routes/admin/usuarios/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/buscar": [
+		"src/routes/buscar/+page.server.ts"
+	],
+	"/donante/[id]": [
+		"src/routes/donante/[id]/+page.server.ts"
+	],
+	"/egresos": [
+		"src/routes/egresos/+page.server.ts"
+	],
+	"/estadisticas": [
+		"src/routes/estadisticas/+page.server.ts"
+	],
+	"/health": [
+		"src/routes/health/+server.ts"
+	],
+	"/movimientos": [
+		"src/routes/movimientos/+page.server.ts"
+	],
+	"/reportes": [
+		"src/routes/reportes/+page.server.ts"
+	]
+}

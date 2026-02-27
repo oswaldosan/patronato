@@ -1,0 +1,818 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "name": "internal",
+    "src": ".svelte-kit/generated/server/internal.js",
+    "isEntry": true,
+    "imports": [
+      "_root.js",
+      "_environment.js",
+      "_internal.js"
+    ]
+  },
+  "_Badge.js": {
+    "file": "chunks/Badge.js",
+    "name": "Badge",
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "_EmptyState.js": {
+    "file": "chunks/EmptyState.js",
+    "name": "EmptyState",
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "_ProgressBar.bXyYL7lj.css": {
+    "file": "_app/immutable/assets/ProgressBar.bXyYL7lj.css",
+    "src": "_ProgressBar.bXyYL7lj.css"
+  },
+  "_ProgressBar.js": {
+    "file": "chunks/ProgressBar.js",
+    "name": "ProgressBar",
+    "imports": [
+      "_index2.js",
+      "_format.js"
+    ],
+    "css": [
+      "_app/immutable/assets/ProgressBar.bXyYL7lj.css"
+    ]
+  },
+  "_ReportsView.js": {
+    "file": "chunks/ReportsView.js",
+    "name": "ReportsView",
+    "imports": [
+      "_index2.js",
+      "_format.js"
+    ]
+  },
+  "_StatCard.js": {
+    "file": "chunks/StatCard.js",
+    "name": "StatCard",
+    "imports": [
+      "_index2.js",
+      "_format.js"
+    ]
+  },
+  "_app.BdkWtYbI.css": {
+    "file": "_app/immutable/assets/app.BdkWtYbI.css",
+    "src": "_app.BdkWtYbI.css"
+  },
+  "_audit.js": {
+    "file": "chunks/audit.js",
+    "name": "audit",
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "_auth.js": {
+    "file": "chunks/auth.js",
+    "name": "auth",
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "_client.js": {
+    "file": "chunks/client.js",
+    "name": "client",
+    "imports": [
+      "_exports.js",
+      "_utils.js",
+      "_index.js",
+      "_root.js",
+      "_state.svelte.js"
+    ]
+  },
+  "_db.js": {
+    "file": "chunks/db.js",
+    "name": "db"
+  },
+  "_environment.js": {
+    "file": "chunks/environment.js",
+    "name": "environment"
+  },
+  "_exports.js": {
+    "file": "chunks/exports.js",
+    "name": "exports"
+  },
+  "_false.js": {
+    "file": "chunks/false.js",
+    "name": "false"
+  },
+  "_format.js": {
+    "file": "chunks/format.js",
+    "name": "format"
+  },
+  "_index.js": {
+    "file": "chunks/index.js",
+    "name": "index",
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "_index2.js": {
+    "file": "chunks/index2.js",
+    "name": "index",
+    "imports": [
+      "_false.js"
+    ]
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "name": "internal",
+    "imports": [
+      "_root.js",
+      "_environment.js"
+    ],
+    "dynamicImports": [
+      "src/hooks.server.ts"
+    ]
+  },
+  "_reports.js": {
+    "file": "chunks/reports.js",
+    "name": "reports",
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "_root.js": {
+    "file": "chunks/root.js",
+    "name": "root",
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "_shared.js": {
+    "file": "chunks/shared.js",
+    "name": "shared",
+    "imports": [
+      "_utils.js"
+    ]
+  },
+  "_state.svelte.js": {
+    "file": "chunks/state.svelte.js",
+    "name": "state.svelte",
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_root.js"
+    ]
+  },
+  "_stores.js": {
+    "file": "chunks/stores.js",
+    "name": "stores",
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js"
+    ]
+  },
+  "_utils.js": {
+    "file": "chunks/utils.js",
+    "name": "utils"
+  },
+  "_validations.js": {
+    "file": "chunks/validations.js",
+    "name": "validations"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/app/server/remote/index.js": {
+    "file": "remote-entry.js",
+    "name": "remote-entry",
+    "src": "node_modules/@sveltejs/kit/src/runtime/app/server/remote/index.js",
+    "isEntry": true,
+    "imports": [
+      "_shared.js",
+      "_false.js",
+      "_environment.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "name": "entries/fallbacks/error.svelte",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_state.svelte.js",
+      "_client.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "name": "index",
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
+    "isEntry": true,
+    "imports": [
+      "_false.js",
+      "_environment.js",
+      "_shared.js",
+      "_exports.js",
+      "_utils.js",
+      "_index.js",
+      "_internal.js"
+    ]
+  },
+  "src/hooks.server.ts": {
+    "file": "entries/hooks.server.js",
+    "name": "entries/hooks.server",
+    "src": "src/hooks.server.ts",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_auth.js"
+    ]
+  },
+  "src/routes/+layout.svelte": {
+    "file": "entries/pages/_layout.svelte.js",
+    "name": "entries/pages/_layout.svelte",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_stores.js"
+    ],
+    "css": [
+      "_app/immutable/assets/app.BdkWtYbI.css"
+    ]
+  },
+  "src/routes/+page.server.ts": {
+    "file": "entries/pages/_page.server.ts.js",
+    "name": "entries/pages/_page.server.ts",
+    "src": "src/routes/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/+page.svelte": {
+    "file": "entries/pages/_page.svelte.js",
+    "name": "entries/pages/_page.svelte",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_StatCard.js",
+      "_ProgressBar.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/+layout.server.ts": {
+    "file": "entries/pages/admin/_layout.server.ts.js",
+    "name": "entries/pages/admin/_layout.server.ts",
+    "src": "src/routes/admin/+layout.server.ts",
+    "isEntry": true
+  },
+  "src/routes/admin/+layout.svelte": {
+    "file": "entries/pages/admin/_layout.svelte.js",
+    "name": "entries/pages/admin/_layout.svelte",
+    "src": "src/routes/admin/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_stores.js"
+    ],
+    "css": [
+      "_app/immutable/assets/app.BdkWtYbI.css"
+    ]
+  },
+  "src/routes/admin/+page.server.ts": {
+    "file": "entries/pages/admin/_page.server.ts.js",
+    "name": "entries/pages/admin/_page.server.ts",
+    "src": "src/routes/admin/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/admin/+page.svelte": {
+    "file": "entries/pages/admin/_page.svelte.js",
+    "name": "entries/pages/admin/_page.svelte",
+    "src": "src/routes/admin/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_StatCard.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/aportes/+page.server.ts": {
+    "file": "entries/pages/admin/aportes/_page.server.ts.js",
+    "name": "entries/pages/admin/aportes/_page.server.ts",
+    "src": "src/routes/admin/aportes/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/admin/aportes/+page.svelte": {
+    "file": "entries/pages/admin/aportes/_page.svelte.js",
+    "name": "entries/pages/admin/aportes/_page.svelte",
+    "src": "src/routes/admin/aportes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_EmptyState.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/aportes/[id]/+page.server.ts": {
+    "file": "entries/pages/admin/aportes/_id_/_page.server.ts.js",
+    "name": "entries/pages/admin/aportes/_id_/_page.server.ts",
+    "src": "src/routes/admin/aportes/[id]/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/aportes/[id]/+page.svelte": {
+    "file": "entries/pages/admin/aportes/_id_/_page.svelte.js",
+    "name": "entries/pages/admin/aportes/_id_/_page.svelte",
+    "src": "src/routes/admin/aportes/[id]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/aportes/nuevo/+page.server.ts": {
+    "file": "entries/pages/admin/aportes/nuevo/_page.server.ts.js",
+    "name": "entries/pages/admin/aportes/nuevo/_page.server.ts",
+    "src": "src/routes/admin/aportes/nuevo/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/aportes/nuevo/+page.svelte": {
+    "file": "entries/pages/admin/aportes/nuevo/_page.svelte.js",
+    "name": "entries/pages/admin/aportes/nuevo/_page.svelte",
+    "src": "src/routes/admin/aportes/nuevo/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js"
+    ]
+  },
+  "src/routes/admin/auditoria/+page.server.ts": {
+    "file": "entries/pages/admin/auditoria/_page.server.ts.js",
+    "name": "entries/pages/admin/auditoria/_page.server.ts",
+    "src": "src/routes/admin/auditoria/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/admin/auditoria/+page.svelte": {
+    "file": "entries/pages/admin/auditoria/_page.svelte.js",
+    "name": "entries/pages/admin/auditoria/_page.svelte",
+    "src": "src/routes/admin/auditoria/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_EmptyState.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/configuracion/+page.server.ts": {
+    "file": "entries/pages/admin/configuracion/_page.server.ts.js",
+    "name": "entries/pages/admin/configuracion/_page.server.ts",
+    "src": "src/routes/admin/configuracion/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js"
+    ]
+  },
+  "src/routes/admin/configuracion/+page.svelte": {
+    "file": "entries/pages/admin/configuracion/_page.svelte.js",
+    "name": "entries/pages/admin/configuracion/_page.svelte",
+    "src": "src/routes/admin/configuracion/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/donantes/+page.server.ts": {
+    "file": "entries/pages/admin/donantes/_page.server.ts.js",
+    "name": "entries/pages/admin/donantes/_page.server.ts",
+    "src": "src/routes/admin/donantes/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/admin/donantes/+page.svelte": {
+    "file": "entries/pages/admin/donantes/_page.svelte.js",
+    "name": "entries/pages/admin/donantes/_page.svelte",
+    "src": "src/routes/admin/donantes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_EmptyState.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/donantes/[id]/+page.server.ts": {
+    "file": "entries/pages/admin/donantes/_id_/_page.server.ts.js",
+    "name": "entries/pages/admin/donantes/_id_/_page.server.ts",
+    "src": "src/routes/admin/donantes/[id]/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/donantes/[id]/+page.svelte": {
+    "file": "entries/pages/admin/donantes/_id_/_page.svelte.js",
+    "name": "entries/pages/admin/donantes/_id_/_page.svelte",
+    "src": "src/routes/admin/donantes/[id]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/donantes/nuevo/+page.server.ts": {
+    "file": "entries/pages/admin/donantes/nuevo/_page.server.ts.js",
+    "name": "entries/pages/admin/donantes/nuevo/_page.server.ts",
+    "src": "src/routes/admin/donantes/nuevo/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/donantes/nuevo/+page.svelte": {
+    "file": "entries/pages/admin/donantes/nuevo/_page.svelte.js",
+    "name": "entries/pages/admin/donantes/nuevo/_page.svelte",
+    "src": "src/routes/admin/donantes/nuevo/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js"
+    ]
+  },
+  "src/routes/admin/egresos/+page.server.ts": {
+    "file": "entries/pages/admin/egresos/_page.server.ts.js",
+    "name": "entries/pages/admin/egresos/_page.server.ts",
+    "src": "src/routes/admin/egresos/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/admin/egresos/+page.svelte": {
+    "file": "entries/pages/admin/egresos/_page.svelte.js",
+    "name": "entries/pages/admin/egresos/_page.svelte",
+    "src": "src/routes/admin/egresos/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_EmptyState.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/egresos/[id]/+page.server.ts": {
+    "file": "entries/pages/admin/egresos/_id_/_page.server.ts.js",
+    "name": "entries/pages/admin/egresos/_id_/_page.server.ts",
+    "src": "src/routes/admin/egresos/[id]/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/egresos/[id]/+page.svelte": {
+    "file": "entries/pages/admin/egresos/_id_/_page.svelte.js",
+    "name": "entries/pages/admin/egresos/_id_/_page.svelte",
+    "src": "src/routes/admin/egresos/[id]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/egresos/nuevo/+page.server.ts": {
+    "file": "entries/pages/admin/egresos/nuevo/_page.server.ts.js",
+    "name": "entries/pages/admin/egresos/nuevo/_page.server.ts",
+    "src": "src/routes/admin/egresos/nuevo/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/egresos/nuevo/+page.svelte": {
+    "file": "entries/pages/admin/egresos/nuevo/_page.svelte.js",
+    "name": "entries/pages/admin/egresos/nuevo/_page.svelte",
+    "src": "src/routes/admin/egresos/nuevo/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js"
+    ]
+  },
+  "src/routes/admin/login/+page.server.ts": {
+    "file": "entries/pages/admin/login/_page.server.ts.js",
+    "name": "entries/pages/admin/login/_page.server.ts",
+    "src": "src/routes/admin/login/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_auth.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/login/+page.svelte": {
+    "file": "entries/pages/admin/login/_page.svelte.js",
+    "name": "entries/pages/admin/login/_page.svelte",
+    "src": "src/routes/admin/login/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js"
+    ]
+  },
+  "src/routes/admin/logout/+page.server.ts": {
+    "file": "entries/pages/admin/logout/_page.server.ts.js",
+    "name": "entries/pages/admin/logout/_page.server.ts",
+    "src": "src/routes/admin/logout/+page.server.ts",
+    "isEntry": true
+  },
+  "src/routes/admin/reportes/+page.server.ts": {
+    "file": "entries/pages/admin/reportes/_page.server.ts.js",
+    "name": "entries/pages/admin/reportes/_page.server.ts",
+    "src": "src/routes/admin/reportes/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_reports.js"
+    ]
+  },
+  "src/routes/admin/reportes/+page.svelte": {
+    "file": "entries/pages/admin/reportes/_page.svelte.js",
+    "name": "entries/pages/admin/reportes/_page.svelte",
+    "src": "src/routes/admin/reportes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_ReportsView.js"
+    ]
+  },
+  "src/routes/admin/rubros/+page.server.ts": {
+    "file": "entries/pages/admin/rubros/_page.server.ts.js",
+    "name": "entries/pages/admin/rubros/_page.server.ts",
+    "src": "src/routes/admin/rubros/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_audit.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/rubros/+page.svelte": {
+    "file": "entries/pages/admin/rubros/_page.svelte.js",
+    "name": "entries/pages/admin/rubros/_page.svelte",
+    "src": "src/routes/admin/rubros/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/admin/usuarios/+page.server.ts": {
+    "file": "entries/pages/admin/usuarios/_page.server.ts.js",
+    "name": "entries/pages/admin/usuarios/_page.server.ts",
+    "src": "src/routes/admin/usuarios/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js",
+      "_auth.js",
+      "_validations.js"
+    ]
+  },
+  "src/routes/admin/usuarios/+page.svelte": {
+    "file": "entries/pages/admin/usuarios/_page.svelte.js",
+    "name": "entries/pages/admin/usuarios/_page.svelte",
+    "src": "src/routes/admin/usuarios/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/buscar/+page.server.ts": {
+    "file": "entries/pages/buscar/_page.server.ts.js",
+    "name": "entries/pages/buscar/_page.server.ts",
+    "src": "src/routes/buscar/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/buscar/+page.svelte": {
+    "file": "entries/pages/buscar/_page.svelte.js",
+    "name": "entries/pages/buscar/_page.svelte",
+    "src": "src/routes/buscar/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_client.js",
+      "_Badge.js",
+      "_EmptyState.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/donante/[id]/+page.server.ts": {
+    "file": "entries/pages/donante/_id_/_page.server.ts.js",
+    "name": "entries/pages/donante/_id_/_page.server.ts",
+    "src": "src/routes/donante/[id]/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/donante/[id]/+page.svelte": {
+    "file": "entries/pages/donante/_id_/_page.svelte.js",
+    "name": "entries/pages/donante/_id_/_page.svelte",
+    "src": "src/routes/donante/[id]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/egresos/+page.server.ts": {
+    "file": "entries/pages/egresos/_page.server.ts.js",
+    "name": "entries/pages/egresos/_page.server.ts",
+    "src": "src/routes/egresos/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/egresos/+page.svelte": {
+    "file": "entries/pages/egresos/_page.svelte.js",
+    "name": "entries/pages/egresos/_page.svelte",
+    "src": "src/routes/egresos/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/estadisticas/+page.server.ts": {
+    "file": "entries/pages/estadisticas/_page.server.ts.js",
+    "name": "entries/pages/estadisticas/_page.server.ts",
+    "src": "src/routes/estadisticas/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/estadisticas/+page.svelte": {
+    "file": "entries/pages/estadisticas/_page.svelte.js",
+    "name": "entries/pages/estadisticas/_page.svelte",
+    "src": "src/routes/estadisticas/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_StatCard.js",
+      "_ProgressBar.js",
+      "_Badge.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/health/+server.ts": {
+    "file": "entries/endpoints/health/_server.ts.js",
+    "name": "entries/endpoints/health/_server.ts",
+    "src": "src/routes/health/+server.ts",
+    "isEntry": true
+  },
+  "src/routes/movimientos/+page.server.ts": {
+    "file": "entries/pages/movimientos/_page.server.ts.js",
+    "name": "entries/pages/movimientos/_page.server.ts",
+    "src": "src/routes/movimientos/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_db.js"
+    ]
+  },
+  "src/routes/movimientos/+page.svelte": {
+    "file": "entries/pages/movimientos/_page.svelte.js",
+    "name": "entries/pages/movimientos/_page.svelte",
+    "src": "src/routes/movimientos/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_stores.js",
+      "_Badge.js",
+      "_EmptyState.js",
+      "_format.js"
+    ]
+  },
+  "src/routes/reportes/+page.server.ts": {
+    "file": "entries/pages/reportes/_page.server.ts.js",
+    "name": "entries/pages/reportes/_page.server.ts",
+    "src": "src/routes/reportes/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_reports.js"
+    ]
+  },
+  "src/routes/reportes/+page.svelte": {
+    "file": "entries/pages/reportes/_page.svelte.js",
+    "name": "entries/pages/reportes/_page.svelte",
+    "src": "src/routes/reportes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_root.js",
+      "_state.svelte.js",
+      "_ReportsView.js"
+    ]
+  }
+}

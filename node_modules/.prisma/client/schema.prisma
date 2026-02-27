@@ -1,0 +1,181 @@
+// Schema para Patronato de Monterrey - Comité de Desarrollo
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Usuario administrador
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(ADMIN)
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  auditLogs AuditLog[]
+}
+
+enum Role {
+  ADMIN
+  VIEWER
+}
+
+// Donante (persona o empresa)
+model Donante {
+  id             String      @id @default(cuid())
+  nombre         String
+  tipo           TipoDonante
+  identificacion String      @unique
+  nombreNegocio  String?
+  telefono       String?
+  email          String?
+  direccion      String?
+  notas          String?
+  activo         Boolean     @default(true)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  aportes Aporte[]
+
+  @@index([nombre])
+  @@index([nombreNegocio])
+}
+
+enum TipoDonante {
+  PERSONA
+  EMPRESA
+}
+
+// Rubro/Categoría de donación
+model Rubro {
+  id          String   @id @default(cuid())
+  nombre      String   @unique
+  descripcion String?
+  color       String   @default("#1d4ed8")
+  icono       String?
+  orden       Int      @default(0)
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  aportes Aporte[]
+  egresos Egreso[]
+
+  @@index([nombre])
+}
+
+// Aporte/Ingreso
+model Aporte {
+  id         String       @id @default(cuid())
+  donanteId  String
+  rubroId    String
+  fecha      DateTime     @default(now())
+  monto      Decimal      @db.Decimal(14, 2)
+  metodo     MetodoPago
+  referencia String?
+  comentario String?
+  evidencia  String?
+  estado     EstadoAporte @default(PENDIENTE)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  donante Donante @relation(fields: [donanteId], references: [id])
+  rubro   Rubro   @relation(fields: [rubroId], references: [id])
+
+  @@index([donanteId])
+  @@index([rubroId])
+  @@index([fecha])
+  @@index([estado])
+}
+
+enum MetodoPago {
+  DEPOSITO
+  TRANSFERENCIA
+  EFECTIVO
+  CHEQUE
+  OTRO
+}
+
+enum EstadoAporte {
+  PENDIENTE
+  VERIFICADO
+  ANULADO
+}
+
+// Egreso/Gasto
+model Egreso {
+  id          String       @id @default(cuid())
+  fecha       DateTime     @default(now())
+  monto       Decimal      @db.Decimal(14, 2)
+  concepto    String
+  rubroId     String
+  proveedorId String?
+  comprobante String?
+  referencia  String?
+  notas       String?
+  estado      EstadoEgreso @default(PENDIENTE)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  rubro     Rubro      @relation(fields: [rubroId], references: [id])
+  proveedor Proveedor? @relation(fields: [proveedorId], references: [id])
+
+  @@index([fecha])
+  @@index([estado])
+  @@index([rubroId])
+  @@index([proveedorId])
+}
+
+enum EstadoEgreso {
+  PENDIENTE
+  VERIFICADO
+  ANULADO
+}
+
+// Proveedor (para egresos)
+model Proveedor {
+  id        String   @id @default(cuid())
+  nombre    String   @unique
+  contacto  String?
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  egresos Egreso[]
+}
+
+// Log de auditoría
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  entity    String
+  entityId  String
+  oldData   Json?
+  newData   Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([entity, entityId])
+  @@index([createdAt])
+}
+
+// Configuración del sistema
+model Config {
+  id        String   @id @default(cuid())
+  key       String
+  value     String
+  createdAt DateTime @default(now())
+
+  @@index([key])
+}
