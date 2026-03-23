@@ -21,11 +21,7 @@
     <div class="flex justify-between items-center h-14">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-700 to-primary-900 flex items-center justify-center shadow-md shadow-primary-700/30">
-          <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-        </div>
+        <img src="/logo.png" alt="Patronato de Monterrey" class="w-10 h-10 rounded-xl object-contain" />
         <div class="hidden sm:block">
           <span class="font-display font-bold text-lg text-slate-900 leading-tight">Patronato de Monterrey</span>
           <span class="block text-xs text-primary-600 -mt-0.5 font-medium">Comité de Desarrollo</span>

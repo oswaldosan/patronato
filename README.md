@@ -42,8 +42,8 @@ Portal web de transparencia exclusivo para el **Comité de Desarrollo del Patron
 
 - **Color primario**: Azul marino (`#1d4ed8`) — representa la seriedad y confianza institucional
 - **Color acento**: Dorado (`#d97706`) — representa la excelencia y el orgullo regiomontano
-- **Moneda**: Pesos Mexicanos (MXN)
-- **Localización**: `es-MX`
+- **Moneda**: Lempiras Hondureños (HNL)
+- **Localización**: `es-HN`
 
 ## 🚀 Instalación
 
@@ -93,7 +93,7 @@ npx prisma db seed
 Crea:
 - Usuario administrador
 - 10 categorías predefinidas (Industria, Comercio, Servicios, etc.)
-- Configuración inicial con meta de $5,000,000 MXN
+- Configuración inicial con meta de L 5,000,000 HNL
 - Proveedores de ejemplo
 - Donantes de ejemplo
 
@@ -139,7 +139,7 @@ src/
 ├── lib/
 │   ├── components/      # Componentes reutilizables
 │   ├── server/          # Auth, DB, Auditoría, Reportes
-│   ├── utils/           # Formato (moneda MXN, fechas es-MX)
+│   ├── utils/           # Formato (moneda HNL, fechas es-HN)
 │   └── validations.ts   # Esquemas Zod
 ├── routes/
 │   ├── admin/           # Panel administrativo

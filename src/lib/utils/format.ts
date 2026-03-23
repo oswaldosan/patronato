@@ -1,11 +1,11 @@
-// Formatear moneda (Pesos Mexicanos)
+// Formatear moneda (Lempiras Hondureños)
 export function formatCurrency(amount: number | string | null | undefined): string {
   const num = typeof amount === 'string' ? parseFloat(amount) : amount;
-  if (num === null || num === undefined || isNaN(num)) return '$0.00';
+  if (num === null || num === undefined || isNaN(num)) return 'L 0.00';
 
-  return new Intl.NumberFormat('es-MX', {
+  return new Intl.NumberFormat('es-HN', {
     style: 'currency',
-    currency: 'MXN',
+    currency: 'HNL',
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(num);
@@ -16,7 +16,7 @@ export function formatNumber(num: number | string | null | undefined): string {
   const n = typeof num === 'string' ? parseFloat(num) : num;
   if (n === null || n === undefined || isNaN(n)) return '0';
 
-  return new Intl.NumberFormat('es-MX').format(n);
+  return new Intl.NumberFormat('es-HN').format(n);
 }
 
 // Formatear fecha
@@ -24,7 +24,7 @@ export function formatDate(date: Date | string | null | undefined): string {
   if (!date) return '-';
   const d = typeof date === 'string' ? new Date(date) : date;
 
-  return new Intl.DateTimeFormat('es-MX', {
+  return new Intl.DateTimeFormat('es-HN', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -36,7 +36,7 @@ export function formatDateShort(date: Date | string | null | undefined): string 
   if (!date) return '-';
   const d = typeof date === 'string' ? new Date(date) : date;
 
-  return new Intl.DateTimeFormat('es-MX', {
+  return new Intl.DateTimeFormat('es-HN', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -48,7 +48,7 @@ export function formatDateTime(date: Date | string | null | undefined): string {
   if (!date) return '-';
   const d = typeof date === 'string' ? new Date(date) : date;
 
-  return new Intl.DateTimeFormat('es-MX', {
+  return new Intl.DateTimeFormat('es-HN', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

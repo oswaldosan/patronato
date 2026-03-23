@@ -42,11 +42,7 @@
           </svg>
         </button>
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-lg bg-primary-700 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
+          <img src="/logo.png" alt="Patronato de Monterrey" class="w-8 h-8 rounded-lg object-contain" />
           <span class="font-display font-bold text-slate-900">Panel Administrativo</span>
         </div>
         <a href="/" class="text-sm text-primary-700 font-medium">Ver sitio</a>
@@ -75,11 +71,7 @@
       <div class="flex flex-col h-full">
         <!-- Logo -->
         <div class="flex items-center gap-3 px-5 h-16 border-b border-primary-900">
-          <div class="w-10 h-10 rounded-xl bg-primary-800 flex items-center justify-center shrink-0">
-            <svg class="w-6 h-6 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
+          <img src="/logo.png" alt="Patronato de Monterrey" class="w-10 h-10 rounded-xl object-contain shrink-0" />
           <div>
             <span class="font-display font-bold text-white text-sm leading-tight block">Patronato Monterrey</span>
             <span class="text-xs text-accent-400 font-medium">Panel Administrativo</span>

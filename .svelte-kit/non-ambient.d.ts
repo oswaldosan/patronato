@@ -64,6 +64,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/admin" | "/admin/aportes" | "/admin/aportes/nuevo" | `/admin/aportes/${string}` & {} | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/nuevo" | `/admin/donantes/${string}` & {} | "/admin/egresos" | "/admin/egresos/nuevo" | `/admin/egresos/${string}` & {} | "/admin/login" | "/admin/logout" | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | "/buscar" | `/donante/${string}` & {} | "/egresos" | "/estadisticas" | "/health" | "/movimientos" | "/reportes";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/robots.txt" | string & {};
+		Asset(): "/favicon.png" | "/logo.png" | "/robots.txt" | string & {};
 	}
 }

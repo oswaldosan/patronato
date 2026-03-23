@@ -4,11 +4,7 @@
       <!-- About -->
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl bg-primary-800 flex items-center justify-center">
-            <svg class="w-7 h-7 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
+          <img src="/logo.png" alt="Patronato de Monterrey" class="w-12 h-12 rounded-xl object-contain" />
           <div>
             <p class="font-display font-bold text-white text-lg leading-tight">Patronato de Monterrey</p>
             <p class="text-xs text-accent-400 font-medium">Comité de Desarrollo</p>
