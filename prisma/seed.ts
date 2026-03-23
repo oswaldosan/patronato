@@ -44,18 +44,15 @@ async function main() {
   }
   console.log('✅ Rubros creados:', rubrosData.length);
 
-  await prisma.config.createMany({
-    data: [
-      {
-        key: 'META_PROYECTO',
-        value: process.env.PUBLIC_META_GOAL || '5000000',
-      },
-      {
-        key: 'NOMBRE_PROYECTO',
-        value: 'Patronato Pro Mejoramiento de Monterrey',
-      },
-    ],
-    skipDuplicates: true,
+  await prisma.config.upsert({
+    where: { key: 'META_PROYECTO' },
+    update: {},
+    create: { key: 'META_PROYECTO', value: process.env.PUBLIC_META_GOAL || '5000000' },
+  });
+  await prisma.config.upsert({
+    where: { key: 'NOMBRE_PROYECTO' },
+    update: {},
+    create: { key: 'NOMBRE_PROYECTO', value: 'Patronato Pro Mejoramiento de Monterrey' },
   });
   console.log('✅ Configuración inicial creada');
 

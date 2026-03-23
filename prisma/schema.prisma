@@ -191,9 +191,7 @@ model Proyecto {
 // Configuración del sistema
 model Config {
   id        String   @id @default(cuid())
-  key       String
+  key       String   @unique
   value     String
   createdAt DateTime @default(now())
-
-  @@index([key])
 }

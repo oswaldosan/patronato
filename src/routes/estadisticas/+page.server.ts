@@ -134,11 +134,10 @@ export const load: PageServerLoad = async () => {
     : 0;
 
   // Meta
-  const metaConfig = await prisma.config.findFirst({
+  const metaConfig = await prisma.config.findUnique({
     where: { key: 'META_PROYECTO' },
-    orderBy: { createdAt: 'desc' },
   });
-  const metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 500000;
+  const metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 5000000;
 
   return {
     totales: {

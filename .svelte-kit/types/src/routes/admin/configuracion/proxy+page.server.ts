@@ -10,14 +10,10 @@ export const load = async ({ locals }: Parameters<PageServerLoad>[0]) => {
     throw redirect(302, '/admin');
   }
   
-  // Obtener configuración actual
-  const metaConfig = await prisma.config.findFirst({
-    where: { key: 'META_PROYECTO' },
-  });
-  
-  const nombreProyecto = await prisma.config.findFirst({
-    where: { key: 'NOMBRE_PROYECTO' },
-  });
+  const [metaConfig, nombreProyecto] = await Promise.all([
+    prisma.config.findUnique({ where: { key: 'META_PROYECTO' } }),
+    prisma.config.findUnique({ where: { key: 'NOMBRE_PROYECTO' } }),
+  ]);
   
   return {
     config: {
@@ -46,26 +42,17 @@ export const actions = {
     }
     
     try {
-      // Buscar configuración existente
-      const existing = await prisma.config.findFirst({
+      const existing = await prisma.config.findUnique({
         where: { key: 'META_PROYECTO' },
       });
       
       const oldValue = existing?.value || null;
       
-      if (existing) {
-        await prisma.config.update({
-          where: { id: existing.id },
-          data: { value: meta.toString() },
-        });
-      } else {
-        await prisma.config.create({
-          data: {
-            key: 'META_PROYECTO',
-            value: meta.toString(),
-          },
-        });
-      }
+      await prisma.config.upsert({
+        where: { key: 'META_PROYECTO' },
+        update: { value: meta.toString() },
+        create: { key: 'META_PROYECTO', value: meta.toString() },
+      });
       
       // Audit log
       createAuditLog({
@@ -101,25 +88,17 @@ export const actions = {
     }
     
     try {
-      const existing = await prisma.config.findFirst({
+      const existing = await prisma.config.findUnique({
         where: { key: 'NOMBRE_PROYECTO' },
       });
       
       const oldValue = existing?.value || null;
       
-      if (existing) {
-        await prisma.config.update({
-          where: { id: existing.id },
-          data: { value: nombre },
-        });
-      } else {
-        await prisma.config.create({
-          data: {
-            key: 'NOMBRE_PROYECTO',
-            value: nombre,
-          },
-        });
-      }
+      await prisma.config.upsert({
+        where: { key: 'NOMBRE_PROYECTO' },
+        update: { value: nombre },
+        create: { key: 'NOMBRE_PROYECTO', value: nombre },
+      });
       
       // Audit log
       createAuditLog({
