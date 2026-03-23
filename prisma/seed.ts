@@ -23,7 +23,7 @@ async function main() {
   console.log('✅ Usuario admin creado:', adminUser.email);
 
   const rubrosData = [
-    { nombre: 'Industria', descripcion: 'Empresas industriales y manufactureras', color: '#1d4ed8', icono: '🏭', orden: 1 },
+    { nombre: 'Industria', descripcion: 'Empresas industriales y manufactureras', color: '#15803d', icono: '🏭', orden: 1 },
     { nombre: 'Comercio', descripcion: 'Negocios comerciales y tiendas', color: '#7c3aed', icono: '🏪', orden: 2 },
     { nombre: 'Servicios', descripcion: 'Empresas de servicios profesionales', color: '#0891b2', icono: '💼', orden: 3 },
     { nombre: 'Construcción', descripcion: 'Empresas constructoras e inmobiliarias', color: '#d97706', icono: '🏗️', orden: 4 },

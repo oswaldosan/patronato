@@ -73,7 +73,7 @@ export function truncate(text: string | null | undefined, length: number = 50): 
 // Generar colores para gráficos
 export function generateColors(count: number): string[] {
   const baseColors = [
-    '#1d4ed8', // azul
+    '#15803d', // verde
     '#d97706', // dorado
     '#7c3aed', // violeta
     '#059669', // verde

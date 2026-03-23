@@ -24,7 +24,7 @@ export const donanteUpdateSchema = donanteSchema.partial().extend({
 export const rubroSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres').max(100),
   descripcion: z.string().max(500).optional().nullable(),
-  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/, 'Color inválido').default('#1d4ed8'),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/, 'Color inválido').default('#15803d'),
   icono: z.string().max(50).optional().nullable(),
   orden: z.number().int().min(0).default(0),
 });

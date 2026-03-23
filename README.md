@@ -40,8 +40,8 @@ Portal web de transparencia exclusivo para el **Patronato Pro Mejoramiento de Mo
 
 ## 🎨 Identidad Visual
 
-- **Color primario**: Azul marino (`#1d4ed8`) — representa la seriedad y confianza institucional
-- **Color acento**: Dorado (`#d97706`) — representa la excelencia y el orgullo regiomontano
+- **Color primario**: Verde bosque (`#15803d`) — representa la naturaleza y el crecimiento de la comunidad
+- **Color acento**: Dorado (`#d97706`) — representa la excelencia y la corona del patronato
 - **Moneda**: Lempiras Hondureños (HNL)
 - **Localización**: `es-HN`
 

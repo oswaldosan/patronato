@@ -51,7 +51,7 @@
           datasets: [{
             label: 'Total donado',
             data: data.topDonantes.slice(0, 8).map(d => d.total),
-            backgroundColor: '#1d4ed8',
+            backgroundColor: '#15803d',
             borderRadius: 8,
           }],
         },
@@ -81,11 +81,11 @@
           datasets: [{
             label: 'Donaciones',
             data: data.donacionesPorMes.map(m => m.total),
-            borderColor: '#1d4ed8',
-            backgroundColor: 'rgba(29, 78, 216, 0.08)',
+            borderColor: '#15803d',
+            backgroundColor: 'rgba(21, 128, 61, 0.08)',
             fill: true,
             tension: 0.4,
-            pointBackgroundColor: '#1d4ed8',
+            pointBackgroundColor: '#15803d',
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointRadius: 6,

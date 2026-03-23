@@ -59,7 +59,7 @@ model Rubro {
   id          String   @id @default(cuid())
   nombre      String   @unique
   descripcion String?
-  color       String   @default("#1d4ed8")
+  color       String   @default("#15803d")
   icono       String?
   orden       Int      @default(0)
   activo      Boolean  @default(true)
