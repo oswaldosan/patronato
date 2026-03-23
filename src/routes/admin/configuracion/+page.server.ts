@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ locals }) => {
   return {
     config: {
       metaProyecto: metaConfig?.value ? parseFloat(metaConfig.value) : 500000,
-      nombreProyecto: nombreProyecto?.value || 'Patronato de Monterrey – Comité de Desarrollo',
+      nombreProyecto: nombreProyecto?.value || 'Patronato Pro Mejoramiento de Monterrey',
     },
   };
 };

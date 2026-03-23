@@ -11,6 +11,7 @@
     { href: '/admin/rubros', label: 'Categorías', icon: '📁' },
     { href: '/admin/aportes', label: 'Donaciones', icon: '💰' },
     { href: '/admin/egresos', label: 'Gastos', icon: '📤' },
+    { href: '/admin/proyectos', label: 'Proyectos', icon: '🏗️' },
     { href: '/admin/reportes', label: 'Reportes', icon: '📑' },
     { href: '/admin/auditoria', label: 'Auditoría', icon: '📋' },
   ];
@@ -42,7 +43,7 @@
           </svg>
         </button>
         <div class="flex items-center gap-2">
-          <img src="/logo.png" alt="Patronato de Monterrey" class="w-8 h-8 rounded-lg object-contain" />
+          <img src="/logo.png" alt="Patronato Pro Mejoramiento de Monterrey" class="w-8 h-8 rounded-lg object-contain" />
           <span class="font-display font-bold text-slate-900">Panel Administrativo</span>
         </div>
         <a href="/" class="text-sm text-primary-700 font-medium">Ver sitio</a>
@@ -71,9 +72,9 @@
       <div class="flex flex-col h-full">
         <!-- Logo -->
         <div class="flex items-center gap-3 px-5 h-16 border-b border-primary-900">
-          <img src="/logo.png" alt="Patronato de Monterrey" class="w-10 h-10 rounded-xl object-contain shrink-0" />
+          <img src="/logo.png" alt="Patronato Pro Mejoramiento de Monterrey" class="w-10 h-10 rounded-xl object-contain shrink-0" />
           <div>
-            <span class="font-display font-bold text-white text-sm leading-tight block">Patronato Monterrey</span>
+            <span class="font-display font-bold text-white text-sm leading-tight block">Patronato Pro Mejoramiento</span>
             <span class="text-xs text-accent-400 font-medium">Panel Administrativo</span>
           </div>
         </div>

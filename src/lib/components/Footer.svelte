@@ -4,14 +4,13 @@
       <!-- About -->
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <img src="/logo.png" alt="Patronato de Monterrey" class="w-12 h-12 rounded-xl object-contain" />
+          <img src="/logo.png" alt="Patronato Pro Mejoramiento de Monterrey" class="w-12 h-12 rounded-xl object-contain" />
           <div>
-            <p class="font-display font-bold text-white text-lg leading-tight">Patronato de Monterrey</p>
-            <p class="text-xs text-accent-400 font-medium">Comité de Desarrollo</p>
+            <p class="font-display font-bold text-white text-lg leading-tight">Patronato Pro Mejoramiento de Monterrey</p>
           </div>
         </div>
         <p class="text-sm leading-relaxed">
-          Portal de transparencia del Patronato de Monterrey. Gestionamos y publicamos de forma pública cada aporte recibido y cada gasto realizado para el desarrollo de nuestra ciudad.
+          Portal de transparencia del Patronato Pro Mejoramiento de Monterrey. Gestionamos y publicamos de forma pública cada aporte recibido y cada gasto realizado para el desarrollo de nuestra ciudad.
         </p>
       </div>
 
@@ -22,6 +21,7 @@
           <li><a href="/" class="hover:text-accent-400 transition-colors">Inicio</a></li>
           <li><a href="/movimientos" class="hover:text-accent-400 transition-colors">Donaciones</a></li>
           <li><a href="/egresos" class="hover:text-accent-400 transition-colors">Gastos</a></li>
+          <li><a href="/proyectos" class="hover:text-accent-400 transition-colors">Proyectos</a></li>
           <li><a href="/buscar" class="hover:text-accent-400 transition-colors">Buscar Donante</a></li>
           <li><a href="/estadisticas" class="hover:text-accent-400 transition-colors">Estadísticas</a></li>
         </ul>
@@ -50,7 +50,7 @@
 
     <div class="border-t border-primary-900 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
       <p class="text-sm">
-        © {new Date().getFullYear()} Patronato de Monterrey – Comité de Desarrollo. Todos los derechos reservados.
+        © {new Date().getFullYear()} Patronato Pro Mejoramiento de Monterrey. Todos los derechos reservados.
       </p>
       <p class="text-xs text-slate-500">
         Transparencia al servicio de Monterrey

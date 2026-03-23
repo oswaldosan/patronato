@@ -109,7 +109,7 @@
 </script>
 
 <svelte:head>
-  <title>Patronato de Monterrey – Portal de Transparencia</title>
+  <title>Patronato Pro Mejoramiento de Monterrey – Portal de Transparencia</title>
 </svelte:head>
 
 <!-- Hero Section -->
@@ -125,11 +125,11 @@
     <div class="text-center">
       <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-8 border border-white/20">
         <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
-        Portal de Transparencia — Comité de Desarrollo
+        Portal de Transparencia
       </div>
 
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-5 tracking-tight">
-        Patronato de
+        Patronato Pro Mejoramiento de
         <span class="text-accent-400">Monterrey</span>
       </h1>
 

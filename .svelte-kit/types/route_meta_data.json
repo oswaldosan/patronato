@@ -59,6 +59,18 @@
 		"src/routes/admin/logout/+page.server.ts",
 		"src/routes/admin/+layout.server.ts"
 	],
+	"/admin/proyectos": [
+		"src/routes/admin/proyectos/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/proyectos/nuevo": [
+		"src/routes/admin/proyectos/nuevo/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
+	"/admin/proyectos/[id]": [
+		"src/routes/admin/proyectos/[id]/+page.server.ts",
+		"src/routes/admin/+layout.server.ts"
+	],
 	"/admin/reportes": [
 		"src/routes/admin/reportes/+page.server.ts",
 		"src/routes/admin/+layout.server.ts"
@@ -70,6 +82,9 @@
 	"/admin/usuarios": [
 		"src/routes/admin/usuarios/+page.server.ts",
 		"src/routes/admin/+layout.server.ts"
+	],
+	"/api/uploads/[...path]": [
+		"src/routes/api/uploads/[...path]/+server.ts"
 	],
 	"/buscar": [
 		"src/routes/buscar/+page.server.ts"
@@ -88,6 +103,12 @@
 	],
 	"/movimientos": [
 		"src/routes/movimientos/+page.server.ts"
+	],
+	"/proyectos": [
+		"src/routes/proyectos/+page.server.ts"
+	],
+	"/proyectos/[id]": [
+		"src/routes/proyectos/[id]/+page.server.ts"
 	],
 	"/reportes": [
 		"src/routes/reportes/+page.server.ts"

@@ -52,7 +52,7 @@ async function main() {
       },
       {
         key: 'NOMBRE_PROYECTO',
-        value: 'Patronato de Monterrey - Comité de Desarrollo',
+        value: 'Patronato Pro Mejoramiento de Monterrey',
       },
     ],
     skipDuplicates: true,

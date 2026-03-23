@@ -88,6 +88,18 @@ export const userPasswordResetSchema = z.object({
   password: z.string().min(8, 'La contraseña debe tener al menos 8 caracteres'),
 });
 
+// Proyecto
+export const proyectoSchema = z.object({
+  titulo: z.string().min(3, 'El título debe tener al menos 3 caracteres').max(200),
+  descripcion: z.string().min(10, 'La descripción debe tener al menos 10 caracteres').max(2000),
+  fecha: z.string().or(z.date()).transform((val) => new Date(val)),
+  gastoTotal: z.number().positive('El gasto debe ser mayor a 0').or(
+    z.string().transform((val) => parseFloat(val))
+  ),
+});
+
+export const proyectoUpdateSchema = proyectoSchema.partial();
+
 // Búsqueda
 export const searchSchema = z.object({
   query: z.string().min(1).max(200),
@@ -100,3 +112,4 @@ export type AporteInput = z.infer<typeof aporteSchema>;
 export type EgresoInput = z.infer<typeof egresoSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
 export type UserCreateInput = z.infer<typeof userCreateSchema>;
+export type ProyectoInput = z.infer<typeof proyectoSchema>;

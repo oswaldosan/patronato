@@ -149,7 +149,7 @@
 </script>
 
 <svelte:head>
-  <title>Estadísticas - Patronato de Monterrey</title>
+  <title>Estadísticas - Patronato Pro Mejoramiento de Monterrey</title>
 </svelte:head>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

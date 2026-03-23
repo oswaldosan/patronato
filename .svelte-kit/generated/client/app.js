@@ -27,7 +27,12 @@ export const nodes = [
 	() => import('./nodes/23'),
 	() => import('./nodes/24'),
 	() => import('./nodes/25'),
-	() => import('./nodes/26')
+	() => import('./nodes/26'),
+	() => import('./nodes/27'),
+	() => import('./nodes/28'),
+	() => import('./nodes/29'),
+	() => import('./nodes/30'),
+	() => import('./nodes/31')
 ];
 
 export const server_loads = [2];
@@ -48,15 +53,20 @@ export const dictionary = {
 		"/admin/egresos/[id]": [~14,[2]],
 		"/admin/login": [~16,[2]],
 		"/admin/logout": [~17,[2]],
-		"/admin/reportes": [~18,[2]],
-		"/admin/rubros": [~19,[2]],
-		"/admin/usuarios": [~20,[2]],
-		"/buscar": [~21],
-		"/donante/[id]": [~22],
-		"/egresos": [~23],
-		"/estadisticas": [~24],
-		"/movimientos": [~25],
-		"/reportes": [~26]
+		"/admin/proyectos": [~18,[2]],
+		"/admin/proyectos/nuevo": [~20,[2]],
+		"/admin/proyectos/[id]": [~19,[2]],
+		"/admin/reportes": [~21,[2]],
+		"/admin/rubros": [~22,[2]],
+		"/admin/usuarios": [~23,[2]],
+		"/buscar": [~24],
+		"/donante/[id]": [~25],
+		"/egresos": [~26],
+		"/estadisticas": [~27],
+		"/movimientos": [~28],
+		"/proyectos": [~29],
+		"/proyectos/[id]": [~30],
+		"/reportes": [~31]
 	};
 
 export const hooks = {

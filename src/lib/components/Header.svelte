@@ -7,6 +7,7 @@
     { href: '/', label: 'Inicio' },
     { href: '/movimientos', label: 'Donaciones' },
     { href: '/egresos', label: 'Gastos' },
+    { href: '/proyectos', label: 'Proyectos' },
     { href: '/buscar', label: 'Buscar Donante' },
     { href: '/reportes', label: 'Reportes' },
   ];
@@ -21,10 +22,10 @@
     <div class="flex justify-between items-center h-14">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 group">
-        <img src="/logo.png" alt="Patronato de Monterrey" class="w-10 h-10 rounded-xl object-contain" />
+        <img src="/logo.png" alt="Patronato Pro Mejoramiento de Monterrey" class="w-10 h-10 rounded-xl object-contain" />
         <div class="hidden sm:block">
-          <span class="font-display font-bold text-lg text-slate-900 leading-tight">Patronato de Monterrey</span>
-          <span class="block text-xs text-primary-600 -mt-0.5 font-medium">Comité de Desarrollo</span>
+          <span class="font-display font-bold text-lg text-slate-900 leading-tight">Patronato Pro Mejoramiento</span>
+          <span class="block text-xs text-primary-600 -mt-0.5 font-medium">de Monterrey</span>
         </div>
       </a>
 

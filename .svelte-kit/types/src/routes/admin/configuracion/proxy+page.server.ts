@@ -22,7 +22,7 @@ export const load = async ({ locals }: Parameters<PageServerLoad>[0]) => {
   return {
     config: {
       metaProyecto: metaConfig?.value ? parseFloat(metaConfig.value) : 500000,
-      nombreProyecto: nombreProyecto?.value || 'Patronato de Monterrey – Comité de Desarrollo',
+      nombreProyecto: nombreProyecto?.value || 'Patronato Pro Mejoramiento de Monterrey',
     },
   };
 };

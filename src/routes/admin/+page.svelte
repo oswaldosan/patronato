@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <title>Dashboard – Patronato Monterrey Admin</title>
+  <title>Dashboard – Patronato Pro Mejoramiento de Monterrey</title>
 </svelte:head>
 
 <div class="space-y-8">
@@ -24,7 +24,7 @@
   <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
     <div>
       <h1 class="page-title">Dashboard</h1>
-      <p class="text-slate-600 mt-1">Resumen operativo y financiero del Patronato de Monterrey.</p>
+      <p class="text-slate-600 mt-1">Resumen operativo y financiero del Patronato Pro Mejoramiento de Monterrey.</p>
     </div>
     <div class="flex flex-wrap gap-3">
       <a href="/admin/reportes" class="btn btn-secondary">Ver reportes</a>

@@ -13,7 +13,7 @@ type OptionalUnion<U extends Record<string, any>, A extends keyof U = U extends 
 export type Snapshot<T = any> = Kit.Snapshot<T>;
 type PageServerParentData = EnsureDefined<LayoutServerData>;
 type PageParentData = EnsureDefined<LayoutData>;
-type LayoutRouteId = RouteId | "/" | "/admin" | "/admin/aportes" | "/admin/aportes/[id]" | "/admin/aportes/nuevo" | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/[id]" | "/admin/donantes/nuevo" | "/admin/egresos" | "/admin/egresos/[id]" | "/admin/egresos/nuevo" | "/admin/login" | "/admin/logout" | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | "/buscar" | "/donante/[id]" | "/egresos" | "/estadisticas" | "/movimientos" | "/reportes" | null
+type LayoutRouteId = RouteId | "/" | "/admin" | "/admin/aportes" | "/admin/aportes/[id]" | "/admin/aportes/nuevo" | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/[id]" | "/admin/donantes/nuevo" | "/admin/egresos" | "/admin/egresos/[id]" | "/admin/egresos/nuevo" | "/admin/login" | "/admin/logout" | "/admin/proyectos" | "/admin/proyectos/[id]" | "/admin/proyectos/nuevo" | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | "/buscar" | "/donante/[id]" | "/egresos" | "/estadisticas" | "/movimientos" | "/proyectos" | "/proyectos/[id]" | "/reportes" | null
 type LayoutParams = RouteParams & { id?: string }
 type LayoutParentData = EnsureDefined<{}>;
 

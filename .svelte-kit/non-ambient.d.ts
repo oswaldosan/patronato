@@ -27,15 +27,18 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/admin" | "/admin/aportes" | "/admin/aportes/nuevo" | "/admin/aportes/[id]" | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/nuevo" | "/admin/donantes/[id]" | "/admin/egresos" | "/admin/egresos/nuevo" | "/admin/egresos/[id]" | "/admin/login" | "/admin/logout" | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | "/buscar" | "/donante" | "/donante/[id]" | "/egresos" | "/estadisticas" | "/health" | "/movimientos" | "/reportes";
+		RouteId(): "/" | "/admin" | "/admin/aportes" | "/admin/aportes/nuevo" | "/admin/aportes/[id]" | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/nuevo" | "/admin/donantes/[id]" | "/admin/egresos" | "/admin/egresos/nuevo" | "/admin/egresos/[id]" | "/admin/login" | "/admin/logout" | "/admin/proyectos" | "/admin/proyectos/nuevo" | "/admin/proyectos/[id]" | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | "/api" | "/api/uploads" | "/api/uploads/[...path]" | "/buscar" | "/donante" | "/donante/[id]" | "/egresos" | "/estadisticas" | "/health" | "/movimientos" | "/proyectos" | "/proyectos/[id]" | "/reportes";
 		RouteParams(): {
 			"/admin/aportes/[id]": { id: string };
 			"/admin/donantes/[id]": { id: string };
 			"/admin/egresos/[id]": { id: string };
-			"/donante/[id]": { id: string }
+			"/admin/proyectos/[id]": { id: string };
+			"/api/uploads/[...path]": { path: string };
+			"/donante/[id]": { id: string };
+			"/proyectos/[id]": { id: string }
 		};
 		LayoutParams(): {
-			"/": { id?: string };
+			"/": { id?: string; path?: string };
 			"/admin": { id?: string };
 			"/admin/aportes": { id?: string };
 			"/admin/aportes/nuevo": Record<string, never>;
@@ -50,9 +53,15 @@ declare module "$app/types" {
 			"/admin/egresos/[id]": { id: string };
 			"/admin/login": Record<string, never>;
 			"/admin/logout": Record<string, never>;
+			"/admin/proyectos": { id?: string };
+			"/admin/proyectos/nuevo": Record<string, never>;
+			"/admin/proyectos/[id]": { id: string };
 			"/admin/reportes": Record<string, never>;
 			"/admin/rubros": Record<string, never>;
 			"/admin/usuarios": Record<string, never>;
+			"/api": { path?: string };
+			"/api/uploads": { path?: string };
+			"/api/uploads/[...path]": { path: string };
 			"/buscar": Record<string, never>;
 			"/donante": { id?: string };
 			"/donante/[id]": { id: string };
@@ -60,9 +69,11 @@ declare module "$app/types" {
 			"/estadisticas": Record<string, never>;
 			"/health": Record<string, never>;
 			"/movimientos": Record<string, never>;
+			"/proyectos": { id?: string };
+			"/proyectos/[id]": { id: string };
 			"/reportes": Record<string, never>
 		};
-		Pathname(): "/" | "/admin" | "/admin/aportes" | "/admin/aportes/nuevo" | `/admin/aportes/${string}` & {} | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/nuevo" | `/admin/donantes/${string}` & {} | "/admin/egresos" | "/admin/egresos/nuevo" | `/admin/egresos/${string}` & {} | "/admin/login" | "/admin/logout" | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | "/buscar" | `/donante/${string}` & {} | "/egresos" | "/estadisticas" | "/health" | "/movimientos" | "/reportes";
+		Pathname(): "/" | "/admin" | "/admin/aportes" | "/admin/aportes/nuevo" | `/admin/aportes/${string}` & {} | "/admin/auditoria" | "/admin/configuracion" | "/admin/donantes" | "/admin/donantes/nuevo" | `/admin/donantes/${string}` & {} | "/admin/egresos" | "/admin/egresos/nuevo" | `/admin/egresos/${string}` & {} | "/admin/login" | "/admin/logout" | "/admin/proyectos" | "/admin/proyectos/nuevo" | `/admin/proyectos/${string}` & {} | "/admin/reportes" | "/admin/rubros" | "/admin/usuarios" | `/api/uploads/${string}` & {} | "/buscar" | `/donante/${string}` & {} | "/egresos" | "/estadisticas" | "/health" | "/movimientos" | "/proyectos" | `/proyectos/${string}` & {} | "/reportes";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
 		Asset(): "/favicon.png" | "/logo.png" | "/robots.txt" | string & {};
 	}

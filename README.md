@@ -1,6 +1,6 @@
-# 🏛️ Patronato de Monterrey – Portal de Transparencia
+# 🏛️ Patronato Pro Mejoramiento de Monterrey – Portal de Transparencia
 
-Portal web de transparencia exclusivo para el **Comité de Desarrollo del Patronato de Monterrey**. Permite registrar y publicar donaciones (ingresos) y gastos (egresos) de forma pública, con gráficos, leaderboard de donantes, buscador de donantes y panel administrativo completo.
+Portal web de transparencia exclusivo para el **Patronato Pro Mejoramiento de Monterrey**. Permite registrar y publicar donaciones (ingresos) y gastos (egresos) de forma pública, con gráficos, leaderboard de donantes, buscador de donantes y panel administrativo completo.
 
 ![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -68,7 +68,7 @@ DATABASE_URL="postgresql://usuario:password@localhost:5432/patronato_monterrey?s
 JWT_SECRET="tu-super-secreto-cambiar-en-produccion"
 ADMIN_EMAIL="admin@patronato-monterrey.org"
 ADMIN_PASSWORD="admin123456"
-PUBLIC_APP_NAME="Patronato de Monterrey - Comité de Desarrollo"
+PUBLIC_APP_NAME="Patronato Pro Mejoramiento de Monterrey"
 PUBLIC_META_GOAL=5000000
 ```
 
@@ -175,4 +175,4 @@ npx prisma db seed   # Poblar datos iniciales
 
 ---
 
-Desarrollado para el **Patronato de Monterrey – Comité de Desarrollo**
+Desarrollado para el **Patronato Pro Mejoramiento de Monterrey**

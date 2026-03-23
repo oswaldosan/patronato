@@ -7,16 +7,16 @@
 </script>
 
 <svelte:head>
-  <title>Iniciar Sesión – Patronato Monterrey Admin</title>
+  <title>Iniciar Sesión – Patronato Pro Mejoramiento de Monterrey</title>
 </svelte:head>
 
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 px-4">
   <div class="w-full max-w-md">
     <!-- Logo -->
     <div class="text-center mb-8">
-      <img src="/logo.png" alt="Patronato de Monterrey" class="w-20 h-20 rounded-2xl object-contain mx-auto mb-4 shadow-lg shadow-primary-900/50" />
+      <img src="/logo.png" alt="Patronato Pro Mejoramiento de Monterrey" class="w-20 h-20 rounded-2xl object-contain mx-auto mb-4 shadow-lg shadow-primary-900/50" />
       <h1 class="text-2xl font-display font-bold text-white">Panel de Administración</h1>
-      <p class="text-primary-300 mt-1">Patronato de Monterrey – Comité de Desarrollo</p>
+      <p class="text-primary-300 mt-1">Patronato Pro Mejoramiento de Monterrey</p>
     </div>
 
     <!-- Form Card -->
