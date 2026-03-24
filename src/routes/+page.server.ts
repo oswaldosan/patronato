@@ -87,12 +87,22 @@ export const load: PageServerLoad = async () => {
     ORDER BY mes ASC
   `;
 
-  const [metaConfig, nombreConfig] = await Promise.all([
+  const [metaConfig, nombreConfig, inicioConfig] = await Promise.all([
     prisma.config.findUnique({ where: { key: 'META_PROYECTO' } }),
     prisma.config.findUnique({ where: { key: 'NOMBRE_PROYECTO' } }),
+    prisma.config.findUnique({ where: { key: 'PROYECTO_INICIO' } }),
   ]);
   const metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 5000000;
   const nombreProyecto = nombreConfig?.value || 'Patronato Pro Mejoramiento de Monterrey';
+  const proyectoInicio = inicioConfig ? new Date(inicioConfig.value) : null;
+
+  const recaudadoProyecto = await prisma.aporte.aggregate({
+    _sum: { monto: true },
+    where: {
+      estado: 'VERIFICADO',
+      ...(proyectoInicio && { fecha: { gte: proyectoInicio } }),
+    },
+  });
 
   let materialesStats = { totalValor: 0, totalDonaciones: 0 };
   let donadoresMaterialesData: { donante: string; materiales: string[]; valorTotal: number }[] = [];
@@ -148,6 +158,7 @@ export const load: PageServerLoad = async () => {
       totalAportes,
       metaProyecto,
       nombreProyecto,
+      recaudadoProyecto: recaudadoProyecto._sum.monto?.toNumber() || 0,
     },
     rubroStats,
     ultimosAportes: ultimosAportes.map((a) => ({

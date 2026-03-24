@@ -141,7 +141,7 @@
       <!-- Progress Card -->
       <div class="max-w-lg mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/20 shadow-xl">
         <ProgressBar
-          current={data.stats.totalIngresos}
+          current={data.stats.recaudadoProyecto}
           goal={data.stats.metaProyecto}
           label="Progreso hacia la meta del proyecto: {data.stats.nombreProyecto}"
           showLabels={true}
