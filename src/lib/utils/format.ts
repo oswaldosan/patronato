@@ -115,6 +115,13 @@ export const estadoEgresoLabels: Record<string, string> = {
   ANULADO: 'Anulado',
 };
 
+// Labels para estados de donación de material
+export const estadoDonacionMaterialLabels: Record<string, string> = {
+  PENDIENTE: 'Pendiente',
+  VERIFICADO: 'Verificado',
+  ANULADO: 'Anulado',
+};
+
 // Labels para tipos de donante
 export const tipDonanteLabels: Record<string, string> = {
   PERSONA: 'Persona',

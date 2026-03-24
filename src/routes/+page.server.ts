@@ -87,10 +87,44 @@ export const load: PageServerLoad = async () => {
     ORDER BY mes ASC
   `;
 
-  const metaConfig = await prisma.config.findUnique({
-    where: { key: 'META_PROYECTO' },
-  });
+  const [metaConfig, nombreConfig] = await Promise.all([
+    prisma.config.findUnique({ where: { key: 'META_PROYECTO' } }),
+    prisma.config.findUnique({ where: { key: 'NOMBRE_PROYECTO' } }),
+  ]);
   const metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 5000000;
+  const nombreProyecto = nombreConfig?.value || 'Patronato Pro Mejoramiento de Monterrey';
+
+  const [totalMaterialesAgg, totalDonacionesMateriales, donacionesMateriales] = await Promise.all([
+    prisma.donacionMaterial.aggregate({
+      _sum: { valorEstimado: true },
+      where: { estado: 'VERIFICADO' },
+    }),
+    prisma.donacionMaterial.count({ where: { estado: 'VERIFICADO' } }),
+    prisma.donacionMaterial.findMany({
+      where: { estado: 'VERIFICADO' },
+      include: {
+        donante: { select: { id: true, nombre: true, nombreNegocio: true } },
+      },
+      orderBy: { fecha: 'desc' },
+    }),
+  ]);
+
+  const materialesPorDonante = new Map<string, { donante: string; materiales: string[]; valorTotal: number }>();
+  for (const dm of donacionesMateriales) {
+    const key = dm.donanteId;
+    const existing = materialesPorDonante.get(key);
+    const desc = dm.cantidad ? `${dm.cantidad} ${dm.descripcion}` : dm.descripcion;
+    if (existing) {
+      existing.materiales.push(desc);
+      existing.valorTotal += dm.valorEstimado.toNumber();
+    } else {
+      materialesPorDonante.set(key, {
+        donante: dm.donante.nombreNegocio || dm.donante.nombre,
+        materiales: [desc],
+        valorTotal: dm.valorEstimado.toNumber(),
+      });
+    }
+  }
 
   return {
     stats: {
@@ -100,6 +134,7 @@ export const load: PageServerLoad = async () => {
       totalDonantes,
       totalAportes,
       metaProyecto,
+      nombreProyecto,
     },
     rubroStats,
     ultimosAportes: ultimosAportes.map((a) => ({
@@ -113,5 +148,10 @@ export const load: PageServerLoad = async () => {
     })),
     topDonantes: topDonantesData,
     donacionesPorMes,
+    materialesStats: {
+      totalValor: totalMaterialesAgg._sum.valorEstimado?.toNumber() || 0,
+      totalDonaciones: totalDonacionesMateriales,
+    },
+    donadoresMateriales: Array.from(materialesPorDonante.values()),
   };
 };

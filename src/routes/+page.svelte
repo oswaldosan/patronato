@@ -143,7 +143,7 @@
         <ProgressBar
           current={data.stats.totalIngresos}
           goal={data.stats.metaProyecto}
-          label="Progreso hacia la meta del proyecto"
+          label="Progreso hacia la meta del proyecto: {data.stats.nombreProyecto}"
           showLabels={true}
           variant="dark"
         />
@@ -162,7 +162,7 @@
 <!-- Stats Section -->
 <section class="py-12 -mt-16 relative z-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
       <div class="animate-slide-up" style="animation-delay: 0.1s">
         <StatCard
           title="Total Recaudado"
@@ -200,6 +200,16 @@
           icon="🤝"
           color="purple"
           subtitle="{data.stats.totalAportes} donaciones totales"
+        />
+      </div>
+      <div class="animate-slide-up" style="animation-delay: 0.5s">
+        <StatCard
+          title="Materiales Donados"
+          value={data.materialesStats.totalValor}
+          icon="📦"
+          isCurrency={true}
+          color="green"
+          subtitle="{data.materialesStats.totalDonaciones} donaciones de materiales"
         />
       </div>
     </div>
@@ -426,6 +436,62 @@
     {/if}
   </div>
 </section>
+
+<!-- Donadores de Materiales -->
+{#if data.donadoresMateriales.length > 0}
+  <section class="py-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-accent-50/20 to-white"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-100 rounded-full text-primary-700 text-xs font-semibold uppercase tracking-wider mb-4">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
+            <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" />
+          </svg>
+          Donaciones en Especie
+        </div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+          Donadores de Materiales
+        </h2>
+        <p class="text-slate-500 max-w-lg mx-auto">
+          Gracias a quienes aportan materiales para las obras de nuestra comunidad
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        {#each data.donadoresMateriales as entrada, i}
+          <div
+            class="group bg-white rounded-2xl border border-slate-200/60 px-6 py-5 hover:border-primary-300 hover:shadow-lg transition-all duration-300 animate-slide-up"
+            style="animation-delay: {i * 0.08}s"
+          >
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300">
+                📦
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-slate-800 leading-relaxed">
+                  <span class="font-display font-bold text-slate-900">{entrada.donante}</span>
+                  {' '}donó{' '}
+                  {#each entrada.materiales as material, j}
+                    {#if j > 0 && j === entrada.materiales.length - 1}
+                      {' '}y{' '}
+                    {:else if j > 0}
+                      ,{' '}
+                    {/if}
+                    <span class="italic text-primary-700">{material}</span>
+                  {/each}
+                  {' '}con un valor aprox. de{' '}
+                  <span class="font-display font-bold text-primary-700">{formatCurrency(entrada.valorTotal)}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </div>
+  </section>
+{/if}
 
 <!-- CTA Section -->
 <section class="py-16 bg-gradient-to-br from-primary-800 to-primary-950">

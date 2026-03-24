@@ -43,7 +43,8 @@ model Donante {
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
 
-  aportes Aporte[]
+  aportes              Aporte[]
+  donacionesMateriales DonacionMaterial[]
 
   @@index([nombre])
   @@index([nombreNegocio])
@@ -186,6 +187,33 @@ model Proyecto {
 
   @@index([fecha])
   @@index([publicado])
+}
+
+// Donación de material
+model DonacionMaterial {
+  id            String                 @id @default(cuid())
+  donanteId     String
+  descripcion   String
+  cantidad      String?
+  valorEstimado Decimal                @db.Decimal(14, 2)
+  fecha         DateTime               @default(now())
+  estado        EstadoDonacionMaterial  @default(PENDIENTE)
+  notas         String?
+  evidencia     String?
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+
+  donante Donante @relation(fields: [donanteId], references: [id])
+
+  @@index([donanteId])
+  @@index([fecha])
+  @@index([estado])
+}
+
+enum EstadoDonacionMaterial {
+  PENDIENTE
+  VERIFICADO
+  ANULADO
 }
 
 // Configuración del sistema

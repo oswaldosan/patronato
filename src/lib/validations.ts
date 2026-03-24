@@ -100,6 +100,22 @@ export const proyectoSchema = z.object({
 
 export const proyectoUpdateSchema = proyectoSchema.partial();
 
+// Donación de material
+export const donacionMaterialSchema = z.object({
+  donanteId: z.string().cuid('ID de donante inválido'),
+  descripcion: z.string().min(3, 'La descripción debe tener al menos 3 caracteres').max(500),
+  cantidad: z.string().max(100).optional().nullable(),
+  valorEstimado: z.number().positive('El valor estimado debe ser mayor a 0').or(
+    z.string().transform((val) => parseFloat(val))
+  ),
+  fecha: z.string().or(z.date()).transform((val) => new Date(val)),
+  notas: z.string().max(1000).optional().nullable(),
+  evidencia: z.string().url().optional().nullable(),
+  estado: z.enum(['PENDIENTE', 'VERIFICADO', 'ANULADO']).default('PENDIENTE'),
+});
+
+export const donacionMaterialUpdateSchema = donacionMaterialSchema.partial();
+
 // Búsqueda
 export const searchSchema = z.object({
   query: z.string().min(1).max(200),
@@ -113,3 +129,4 @@ export type EgresoInput = z.infer<typeof egresoSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
 export type UserCreateInput = z.infer<typeof userCreateSchema>;
 export type ProyectoInput = z.infer<typeof proyectoSchema>;
+export type DonacionMaterialInput = z.infer<typeof donacionMaterialSchema>;

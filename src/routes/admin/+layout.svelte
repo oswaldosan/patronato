@@ -10,6 +10,7 @@
     { href: '/admin/donantes', label: 'Donantes', icon: '👥' },
     { href: '/admin/rubros', label: 'Categorías', icon: '📁' },
     { href: '/admin/aportes', label: 'Donaciones', icon: '💰' },
+    { href: '/admin/donaciones-materiales', label: 'Materiales', icon: '📦' },
     { href: '/admin/egresos', label: 'Gastos', icon: '📤' },
     { href: '/admin/proyectos', label: 'Proyectos', icon: '🏗️' },
     { href: '/admin/reportes', label: 'Reportes', icon: '📑' },
