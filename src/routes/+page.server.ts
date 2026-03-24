@@ -94,36 +94,49 @@ export const load: PageServerLoad = async () => {
   const metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 5000000;
   const nombreProyecto = nombreConfig?.value || 'Patronato Pro Mejoramiento de Monterrey';
 
-  const [totalMaterialesAgg, totalDonacionesMateriales, donacionesMateriales] = await Promise.all([
-    prisma.donacionMaterial.aggregate({
-      _sum: { valorEstimado: true },
-      where: { estado: 'VERIFICADO' },
-    }),
-    prisma.donacionMaterial.count({ where: { estado: 'VERIFICADO' } }),
-    prisma.donacionMaterial.findMany({
-      where: { estado: 'VERIFICADO' },
-      include: {
-        donante: { select: { id: true, nombre: true, nombreNegocio: true } },
-      },
-      orderBy: { fecha: 'desc' },
-    }),
-  ]);
+  let materialesStats = { totalValor: 0, totalDonaciones: 0 };
+  let donadoresMaterialesData: { donante: string; materiales: string[]; valorTotal: number }[] = [];
 
-  const materialesPorDonante = new Map<string, { donante: string; materiales: string[]; valorTotal: number }>();
-  for (const dm of donacionesMateriales) {
-    const key = dm.donanteId;
-    const existing = materialesPorDonante.get(key);
-    const desc = dm.cantidad ? `${dm.cantidad} ${dm.descripcion}` : dm.descripcion;
-    if (existing) {
-      existing.materiales.push(desc);
-      existing.valorTotal += dm.valorEstimado.toNumber();
-    } else {
-      materialesPorDonante.set(key, {
-        donante: dm.donante.nombreNegocio || dm.donante.nombre,
-        materiales: [desc],
-        valorTotal: dm.valorEstimado.toNumber(),
-      });
+  try {
+    const [totalMaterialesAgg, totalDonacionesMateriales, donacionesMateriales] = await Promise.all([
+      prisma.donacionMaterial.aggregate({
+        _sum: { valorEstimado: true },
+        where: { estado: 'VERIFICADO' },
+      }),
+      prisma.donacionMaterial.count({ where: { estado: 'VERIFICADO' } }),
+      prisma.donacionMaterial.findMany({
+        where: { estado: 'VERIFICADO' },
+        include: {
+          donante: { select: { id: true, nombre: true, nombreNegocio: true } },
+        },
+        orderBy: { fecha: 'desc' },
+      }),
+    ]);
+
+    materialesStats = {
+      totalValor: totalMaterialesAgg._sum.valorEstimado?.toNumber() || 0,
+      totalDonaciones: totalDonacionesMateriales,
+    };
+
+    const materialesPorDonante = new Map<string, { donante: string; materiales: string[]; valorTotal: number }>();
+    for (const dm of donacionesMateriales) {
+      const key = dm.donanteId;
+      const existing = materialesPorDonante.get(key);
+      const desc = dm.cantidad ? `${dm.cantidad} ${dm.descripcion}` : dm.descripcion;
+      if (existing) {
+        existing.materiales.push(desc);
+        existing.valorTotal += dm.valorEstimado.toNumber();
+      } else {
+        materialesPorDonante.set(key, {
+          donante: dm.donante.nombreNegocio || dm.donante.nombre,
+          materiales: [desc],
+          valorTotal: dm.valorEstimado.toNumber(),
+        });
+      }
     }
+    donadoresMaterialesData = Array.from(materialesPorDonante.values());
+  } catch (e) {
+    console.error('Error cargando donaciones de materiales:', e);
   }
 
   return {
@@ -148,10 +161,7 @@ export const load: PageServerLoad = async () => {
     })),
     topDonantes: topDonantesData,
     donacionesPorMes,
-    materialesStats: {
-      totalValor: totalMaterialesAgg._sum.valorEstimado?.toNumber() || 0,
-      totalDonaciones: totalDonacionesMateriales,
-    },
-    donadoresMateriales: Array.from(materialesPorDonante.values()),
+    materialesStats,
+    donadoresMateriales: donadoresMaterialesData,
   };
 };
