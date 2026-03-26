@@ -9,11 +9,13 @@ export const actions: Actions = {
   default: async ({ request, locals }) => {
     const formData = await request.formData();
 
+    const metaRaw = formData.get('meta') as string;
     const data = {
       titulo: formData.get('titulo') as string,
       descripcion: formData.get('descripcion') as string,
       fecha: formData.get('fecha') as string,
       gastoTotal: formData.get('gastoTotal') as string,
+      meta: metaRaw ? metaRaw : null,
     };
 
     const result = proyectoSchema.safeParse(data);
@@ -45,6 +47,7 @@ export const actions: Actions = {
           descripcion: result.data.descripcion,
           fecha: result.data.fecha,
           gastoTotal: result.data.gastoTotal,
+          meta: result.data.meta ?? null,
           foto1: fotos[0] || null,
           foto2: fotos[1] || null,
           foto3: fotos[2] || null,

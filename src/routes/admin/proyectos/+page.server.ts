@@ -39,6 +39,8 @@ export const load: PageServerLoad = async ({ url }) => {
       descripcion: p.descripcion,
       fecha: p.fecha.toISOString(),
       gastoTotal: p.gastoTotal.toNumber(),
+      meta: p.meta?.toNumber() ?? null,
+      activo: p.activo,
       foto1: p.foto1,
       publicado: p.publicado,
       createdAt: p.createdAt.toISOString(),

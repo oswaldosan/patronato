@@ -16,6 +16,8 @@
 		"db:seed": "prisma db seed",
 		"db:migrate-proyectos": "npx tsx prisma/migrate-proyectos.ts",
 		"db:migrate-donaciones": "npx tsx prisma/migrate-donaciones-materiales.ts",
+		"db:migrate-proyectos-v2": "npx tsx prisma/migrate-proyectos-v2.ts",
+		"db:migrate-solicitudes": "npx tsx prisma/migrate-solicitudes.ts",
 		"db:studio": "prisma studio"
 	},
 	"prisma": {

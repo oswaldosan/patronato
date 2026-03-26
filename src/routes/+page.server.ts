@@ -87,20 +87,31 @@ export const load: PageServerLoad = async () => {
     ORDER BY mes ASC
   `;
 
-  const [metaConfig, nombreConfig, inicioConfig] = await Promise.all([
-    prisma.config.findUnique({ where: { key: 'META_PROYECTO' } }),
-    prisma.config.findUnique({ where: { key: 'NOMBRE_PROYECTO' } }),
-    prisma.config.findUnique({ where: { key: 'PROYECTO_INICIO' } }),
-  ]);
-  const metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 5000000;
-  const nombreProyecto = nombreConfig?.value || 'Patronato Pro Mejoramiento de Monterrey';
-  const proyectoInicio = inicioConfig ? new Date(inicioConfig.value) : null;
+  const proyectoActivo = await prisma.proyecto.findFirst({
+    where: { activo: true },
+    select: { id: true, titulo: true, meta: true },
+  });
+
+  let metaProyecto: number;
+  let nombreProyecto: string;
+
+  if (proyectoActivo) {
+    metaProyecto = proyectoActivo.meta?.toNumber() || 5000000;
+    nombreProyecto = proyectoActivo.titulo;
+  } else {
+    const [metaConfig, nombreConfig] = await Promise.all([
+      prisma.config.findUnique({ where: { key: 'META_PROYECTO' } }),
+      prisma.config.findUnique({ where: { key: 'NOMBRE_PROYECTO' } }),
+    ]);
+    metaProyecto = metaConfig ? parseFloat(metaConfig.value) : 5000000;
+    nombreProyecto = nombreConfig?.value || 'Patronato Pro Mejoramiento de Monterrey';
+  }
 
   const recaudadoProyecto = await prisma.aporte.aggregate({
     _sum: { monto: true },
     where: {
       estado: 'VERIFICADO',
-      ...(proyectoInicio && { fecha: { gte: proyectoInicio } }),
+      ...(proyectoActivo && { proyectoId: proyectoActivo.id }),
     },
   });
 

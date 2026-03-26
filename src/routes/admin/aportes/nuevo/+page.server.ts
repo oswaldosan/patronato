@@ -7,7 +7,7 @@ import type { Actions, PageServerLoad } from './$types';
 export const load: PageServerLoad = async ({ url }) => {
   const donanteId = url.searchParams.get('donante');
   
-  const [donantes, rubros] = await Promise.all([
+  const [donantes, rubros, proyectos] = await Promise.all([
     prisma.donante.findMany({
       where: { activo: true },
       orderBy: { nombre: 'asc' },
@@ -18,11 +18,16 @@ export const load: PageServerLoad = async ({ url }) => {
       orderBy: { orden: 'asc' },
       select: { id: true, nombre: true, color: true },
     }),
+    prisma.proyecto.findMany({
+      orderBy: [{ activo: 'desc' }, { fecha: 'desc' }],
+      select: { id: true, titulo: true, activo: true },
+    }),
   ]);
   
   return {
     donantes,
     rubros,
+    proyectos,
     preselectedDonante: donanteId,
   };
 };
@@ -40,6 +45,7 @@ export const actions: Actions = {
       referencia: formData.get('referencia') as string || null,
       comentario: formData.get('comentario') as string || null,
       estado: formData.get('estado') as string || 'PENDIENTE',
+      proyectoId: (formData.get('proyectoId') as string) || null,
     };
     
     const result = aporteSchema.safeParse(data);

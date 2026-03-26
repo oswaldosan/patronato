@@ -44,6 +44,7 @@ export const aporteSchema = z.object({
   comentario: z.string().max(500).optional().nullable(),
   evidencia: z.string().url().optional().nullable(),
   estado: z.enum(['PENDIENTE', 'VERIFICADO', 'ANULADO']).default('PENDIENTE'),
+  proyectoId: z.string().cuid('ID de proyecto inválido').optional().nullable(),
 });
 
 export const aporteUpdateSchema = aporteSchema.partial();
@@ -61,6 +62,7 @@ export const egresoSchema = z.object({
   referencia: z.string().max(100).optional().nullable(),
   notas: z.string().max(1000).optional().nullable(),
   estado: z.enum(['PENDIENTE', 'VERIFICADO', 'ANULADO']).default('PENDIENTE'),
+  proyectoId: z.string().cuid('ID de proyecto inválido').optional().nullable(),
 });
 
 export const egresoUpdateSchema = egresoSchema.partial();
@@ -96,6 +98,9 @@ export const proyectoSchema = z.object({
   gastoTotal: z.number().positive('El gasto debe ser mayor a 0').or(
     z.string().transform((val) => parseFloat(val))
   ),
+  meta: z.number().positive('La meta debe ser mayor a 0').or(
+    z.string().transform((val) => parseFloat(val))
+  ).optional().nullable(),
 });
 
 export const proyectoUpdateSchema = proyectoSchema.partial();

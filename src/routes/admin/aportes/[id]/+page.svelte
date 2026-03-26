@@ -162,6 +162,24 @@
           </div>
         </div>
         
+        <!-- Proyecto -->
+        <div>
+          <label for="proyectoId" class="label">Proyecto</label>
+          <select 
+            id="proyectoId" 
+            name="proyectoId"
+            value={data.aporte.proyectoId ?? ''}
+            class="select"
+          >
+            <option value="">Sin proyecto asignado</option>
+            {#each data.proyectos as proyecto}
+              <option value={proyecto.id}>
+                {proyecto.titulo}{proyecto.activo ? ' (Activo)' : ''}
+              </option>
+            {/each}
+          </select>
+        </div>
+
         <!-- Referencia -->
         <div>
           <label for="referencia" class="label">
@@ -226,6 +244,18 @@
             </div>
           </div>
           
+          {#if data.aporte.proyecto}
+            <div>
+              <p class="text-slate-500">Proyecto</p>
+              <a href="/admin/proyectos/{data.aporte.proyecto.id}" class="font-medium text-blue-600 hover:underline">
+                {data.aporte.proyecto.titulo}
+              </a>
+              {#if data.aporte.proyecto.activo}
+                <span class="text-xs text-blue-500 ml-1">(Activo)</span>
+              {/if}
+            </div>
+          {/if}
+
           <div>
             <p class="text-slate-500">Creado</p>
             <p class="font-medium">{formatDateTime(data.aporte.createdAt)}</p>

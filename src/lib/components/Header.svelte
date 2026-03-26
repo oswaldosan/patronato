@@ -5,6 +5,7 @@
 
   const navLinks = [
     { href: '/', label: 'Inicio' },
+    { href: '/como-donar', label: 'Donar' },
     { href: '/movimientos', label: 'Donaciones' },
     { href: '/egresos', label: 'Gastos' },
     { href: '/proyectos', label: 'Proyectos' },

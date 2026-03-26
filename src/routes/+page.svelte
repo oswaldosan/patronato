@@ -138,6 +138,12 @@
         Aquí puedes consultar cada donación recibida y cada gasto realizado.
       </p>
 
+      <div class="mb-8">
+        <a href="/como-donar" class="inline-flex items-center gap-2 px-8 py-3.5 bg-accent-500 text-white rounded-xl font-display font-bold text-lg hover:bg-accent-600 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200">
+          🤝 ¿Cómo Puedo Donar?
+        </a>
+      </div>
+
       <!-- Progress Card -->
       <div class="max-w-lg mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/20 shadow-xl">
         <ProgressBar
@@ -503,6 +509,9 @@
       Cada aporte impulsa proyectos que transforman nuestra ciudad. Juntos hacemos la diferencia.
     </p>
     <div class="flex flex-wrap justify-center gap-4">
+      <a href="/como-donar" class="btn bg-accent-500 text-white hover:bg-accent-600 shadow-lg font-semibold text-lg px-8 py-3">
+        ¿Cómo Puedo Donar?
+      </a>
       <a href="/buscar" class="btn bg-white text-primary-800 hover:bg-slate-100 shadow-lg font-semibold">
         Buscar mi historial
       </a>

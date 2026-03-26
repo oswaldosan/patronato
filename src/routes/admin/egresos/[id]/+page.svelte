@@ -139,6 +139,24 @@
           </div>
         </div>
         
+        <!-- Proyecto -->
+        <div>
+          <label for="proyectoId" class="label">Proyecto</label>
+          <select 
+            id="proyectoId" 
+            name="proyectoId"
+            value={data.egreso.proyectoId ?? ''}
+            class="select"
+          >
+            <option value="">Sin proyecto asignado</option>
+            {#each data.proyectos as proyecto}
+              <option value={proyecto.id}>
+                {proyecto.titulo}{proyecto.activo ? ' (Activo)' : ''}
+              </option>
+            {/each}
+          </select>
+        </div>
+
         <!-- Referencia y Estado -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -206,6 +224,18 @@
                 <span class="inline-flex w-2.5 h-2.5 rounded-full" style={`background:${data.egreso.rubroColor}`}></span>
                 {data.egreso.rubroNombre}
               </p>
+            </div>
+          {/if}
+
+          {#if data.egreso.proyectoNombre}
+            <div>
+              <p class="text-slate-500">Proyecto</p>
+              <a href="/admin/proyectos/{data.egreso.proyectoId}" class="font-medium text-blue-600 hover:underline">
+                {data.egreso.proyectoNombre}
+              </a>
+              {#if data.egreso.proyectoActivo}
+                <span class="text-xs text-blue-500 ml-1">(Activo)</span>
+              {/if}
             </div>
           {/if}
 

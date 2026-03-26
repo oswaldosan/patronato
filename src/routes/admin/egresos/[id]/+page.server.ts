@@ -10,6 +10,7 @@ export const load: PageServerLoad = async ({ params }) => {
     include: {
       rubro: { select: { id: true, nombre: true, color: true } },
       proveedor: { select: { id: true, nombre: true } },
+      proyecto: { select: { id: true, titulo: true, activo: true } },
     },
   });
   
@@ -17,7 +18,7 @@ export const load: PageServerLoad = async ({ params }) => {
     throw error(404, 'Egreso no encontrado');
   }
 
-  const [rubros, proveedores] = await Promise.all([
+  const [rubros, proveedores, proyectos] = await Promise.all([
     prisma.rubro.findMany({
       where: { activo: true },
       orderBy: { nombre: 'asc' },
@@ -27,6 +28,10 @@ export const load: PageServerLoad = async ({ params }) => {
       where: { activo: true },
       orderBy: { nombre: 'asc' },
       select: { id: true, nombre: true },
+    }),
+    prisma.proyecto.findMany({
+      orderBy: [{ activo: 'desc' }, { fecha: 'desc' }],
+      select: { id: true, titulo: true, activo: true },
     }),
   ]);
   
@@ -41,6 +46,9 @@ export const load: PageServerLoad = async ({ params }) => {
       rubroColor: egreso.rubro?.color ?? null,
       proveedorId: egreso.proveedor?.id ?? null,
       proveedorNombre: egreso.proveedor?.nombre ?? null,
+      proyectoId: egreso.proyectoId,
+      proyectoNombre: egreso.proyecto?.titulo ?? null,
+      proyectoActivo: egreso.proyecto?.activo ?? false,
       referencia: egreso.referencia,
       notas: egreso.notas,
       estado: egreso.estado,
@@ -49,6 +57,7 @@ export const load: PageServerLoad = async ({ params }) => {
     },
     rubros,
     proveedores,
+    proyectos,
   };
 };
 
@@ -65,6 +74,7 @@ export const actions: Actions = {
       referencia: formData.get('referencia') as string || null,
       notas: formData.get('notas') as string || null,
       estado: formData.get('estado') as string,
+      proyectoId: (formData.get('proyectoId') as string) || null,
     };
     
     const result = egresoUpdateSchema.safeParse(data);

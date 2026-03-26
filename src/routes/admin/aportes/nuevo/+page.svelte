@@ -150,6 +150,23 @@
       ></textarea>
     </div>
     
+    <!-- Proyecto -->
+    <div>
+      <label for="proyectoId" class="label">Proyecto</label>
+      <select 
+        id="proyectoId" 
+        name="proyectoId"
+        class="select"
+      >
+        <option value="">Sin proyecto asignado</option>
+        {#each data.proyectos as proyecto}
+          <option value={proyecto.id}>
+            {proyecto.titulo}{proyecto.activo ? ' (Activo)' : ''}
+          </option>
+        {/each}
+      </select>
+    </div>
+
     <!-- Estado -->
     <div>
       <label for="estado" class="label">Estado inicial</label>

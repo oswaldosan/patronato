@@ -5,12 +5,13 @@ import { aporteUpdateSchema } from '$lib/validations';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-  const [aporte, donantes, rubros] = await Promise.all([
+  const [aporte, donantes, rubros, proyectos] = await Promise.all([
     prisma.aporte.findUnique({
       where: { id: params.id },
       include: {
         donante: { select: { id: true, nombre: true, nombreNegocio: true } },
         rubro: { select: { id: true, nombre: true, color: true } },
+        proyecto: { select: { id: true, titulo: true, activo: true } },
       },
     }),
     prisma.donante.findMany({
@@ -23,6 +24,10 @@ export const load: PageServerLoad = async ({ params }) => {
       orderBy: { orden: 'asc' },
       select: { id: true, nombre: true },
     }),
+    prisma.proyecto.findMany({
+      orderBy: [{ activo: 'desc' }, { fecha: 'desc' }],
+      select: { id: true, titulo: true, activo: true },
+    }),
   ]);
   
   if (!aporte) {
@@ -34,6 +39,7 @@ export const load: PageServerLoad = async ({ params }) => {
       id: aporte.id,
       donanteId: aporte.donanteId,
       rubroId: aporte.rubroId,
+      proyectoId: aporte.proyectoId,
       fecha: aporte.fecha.toISOString().split('T')[0],
       monto: aporte.monto.toNumber(),
       metodo: aporte.metodo,
@@ -42,11 +48,13 @@ export const load: PageServerLoad = async ({ params }) => {
       estado: aporte.estado,
       donante: aporte.donante,
       rubro: aporte.rubro,
+      proyecto: aporte.proyecto,
       createdAt: aporte.createdAt.toISOString(),
       updatedAt: aporte.updatedAt.toISOString(),
     },
     donantes,
     rubros,
+    proyectos,
   };
 };
 
@@ -63,6 +71,7 @@ export const actions: Actions = {
       referencia: formData.get('referencia') as string || null,
       comentario: formData.get('comentario') as string || null,
       estado: formData.get('estado') as string,
+      proyectoId: (formData.get('proyectoId') as string) || null,
     };
     
     const result = aporteUpdateSchema.safeParse(data);

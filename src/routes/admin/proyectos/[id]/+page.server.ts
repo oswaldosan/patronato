@@ -14,6 +14,19 @@ export const load: PageServerLoad = async ({ params }) => {
     throw error(404, 'Proyecto no encontrado');
   }
 
+  const [aportesAgg, egresosAgg, aportesCount, egresosCount] = await Promise.all([
+    prisma.aporte.aggregate({
+      _sum: { monto: true },
+      where: { proyectoId: params.id, estado: 'VERIFICADO' },
+    }),
+    prisma.egreso.aggregate({
+      _sum: { monto: true },
+      where: { proyectoId: params.id, estado: 'VERIFICADO' },
+    }),
+    prisma.aporte.count({ where: { proyectoId: params.id } }),
+    prisma.egreso.count({ where: { proyectoId: params.id } }),
+  ]);
+
   return {
     proyecto: {
       id: proyecto.id,
@@ -21,12 +34,20 @@ export const load: PageServerLoad = async ({ params }) => {
       descripcion: proyecto.descripcion,
       fecha: proyecto.fecha.toISOString().split('T')[0],
       gastoTotal: proyecto.gastoTotal.toNumber(),
+      meta: proyecto.meta?.toNumber() ?? null,
+      activo: proyecto.activo,
       foto1: proyecto.foto1,
       foto2: proyecto.foto2,
       foto3: proyecto.foto3,
       publicado: proyecto.publicado,
       createdAt: proyecto.createdAt.toISOString(),
       updatedAt: proyecto.updatedAt.toISOString(),
+    },
+    financiero: {
+      totalAportes: aportesAgg._sum.monto?.toNumber() || 0,
+      totalEgresos: egresosAgg._sum.monto?.toNumber() || 0,
+      countAportes: aportesCount,
+      countEgresos: egresosCount,
     },
   };
 };
@@ -35,11 +56,13 @@ export const actions: Actions = {
   update: async ({ request, params, locals }) => {
     const formData = await request.formData();
 
+    const metaRaw = formData.get('meta') as string;
     const data = {
       titulo: formData.get('titulo') as string,
       descripcion: formData.get('descripcion') as string,
       fecha: formData.get('fecha') as string,
       gastoTotal: formData.get('gastoTotal') as string,
+      meta: metaRaw ? metaRaw : null,
     };
 
     const result = proyectoUpdateSchema.safeParse(data);
@@ -143,6 +166,54 @@ export const actions: Actions = {
       return { success: true, unpublished: true };
     } catch {
       return fail(500, { error: 'Error al despublicar el proyecto' });
+    }
+  },
+
+  activate: async ({ params, locals }) => {
+    try {
+      await prisma.$transaction([
+        prisma.proyecto.updateMany({
+          where: { activo: true },
+          data: { activo: false },
+        }),
+        prisma.proyecto.update({
+          where: { id: params.id },
+          data: { activo: true },
+        }),
+      ]);
+
+      await createAuditLog({
+        userId: locals.user?.id,
+        action: 'UPDATE',
+        entity: 'Proyecto',
+        entityId: params.id,
+        newData: { activo: true },
+      });
+
+      return { success: true, activated: true };
+    } catch {
+      return fail(500, { error: 'Error al activar el proyecto' });
+    }
+  },
+
+  deactivate: async ({ params, locals }) => {
+    try {
+      await prisma.proyecto.update({
+        where: { id: params.id },
+        data: { activo: false },
+      });
+
+      await createAuditLog({
+        userId: locals.user?.id,
+        action: 'UPDATE',
+        entity: 'Proyecto',
+        entityId: params.id,
+        newData: { activo: false },
+      });
+
+      return { success: true, deactivated: true };
+    } catch {
+      return fail(500, { error: 'Error al desactivar el proyecto' });
     }
   },
 

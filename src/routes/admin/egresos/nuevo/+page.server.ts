@@ -5,7 +5,7 @@ import { egresoSchema } from '$lib/validations';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-  const [rubros, proveedores] = await Promise.all([
+  const [rubros, proveedores, proyectos] = await Promise.all([
     prisma.rubro.findMany({
       where: { activo: true },
       orderBy: { nombre: 'asc' },
@@ -16,9 +16,13 @@ export const load: PageServerLoad = async () => {
       orderBy: { nombre: 'asc' },
       select: { id: true, nombre: true },
     }),
+    prisma.proyecto.findMany({
+      orderBy: [{ activo: 'desc' }, { fecha: 'desc' }],
+      select: { id: true, titulo: true, activo: true },
+    }),
   ]);
 
-  return { rubros, proveedores };
+  return { rubros, proveedores, proyectos };
 };
 
 export const actions: Actions = {
@@ -34,6 +38,7 @@ export const actions: Actions = {
       referencia: formData.get('referencia') as string || null,
       notas: formData.get('notas') as string || null,
       estado: formData.get('estado') as string || 'PENDIENTE',
+      proyectoId: (formData.get('proyectoId') as string) || null,
     };
     
     const result = egresoSchema.safeParse(data);

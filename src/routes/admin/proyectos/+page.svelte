@@ -84,16 +84,26 @@
           {/if}
           <div class="p-5">
             <div class="flex items-center justify-between mb-2">
-              <Badge variant={proyecto.publicado ? 'success' : 'warning'}>
-                {proyecto.publicado ? 'Publicado' : 'Borrador'}
-              </Badge>
+              <div class="flex items-center gap-2">
+                <Badge variant={proyecto.publicado ? 'success' : 'warning'}>
+                  {proyecto.publicado ? 'Publicado' : 'Borrador'}
+                </Badge>
+                {#if proyecto.activo}
+                  <Badge variant="info">Activo</Badge>
+                {/if}
+              </div>
               <span class="text-xs text-slate-500">{formatDateShort(proyecto.fecha)}</span>
             </div>
             <h3 class="font-display font-semibold text-slate-900 group-hover:text-primary-700 transition-colors line-clamp-2 mb-2">
               {proyecto.titulo}
             </h3>
             <p class="text-sm text-slate-500 line-clamp-2 mb-3">{proyecto.descripcion}</p>
-            <p class="text-lg font-display font-bold text-primary-700">{formatCurrency(proyecto.gastoTotal)}</p>
+            <div class="flex items-center justify-between">
+              <p class="text-lg font-display font-bold text-primary-700">{formatCurrency(proyecto.gastoTotal)}</p>
+              {#if proyecto.meta}
+                <p class="text-xs text-slate-500">Meta: {formatCurrency(proyecto.meta)}</p>
+              {/if}
+            </div>
           </div>
         </a>
       {/each}

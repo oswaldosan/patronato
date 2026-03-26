@@ -105,6 +105,26 @@
     </div>
 
     <div>
+      <label for="meta" class="label">
+        Meta de recaudación (L.)
+        <span class="text-slate-400 font-normal">(opcional - para proyectos de recaudación)</span>
+      </label>
+      <div class="relative">
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">L.</span>
+        <input
+          type="number"
+          id="meta"
+          name="meta"
+          step="0.01"
+          min="0.01"
+          value={form?.data?.meta ?? ''}
+          class="input pl-10"
+          placeholder="0.00"
+        />
+      </div>
+    </div>
+
+    <div>
       <span class="label mb-3">Fotografías (máximo 3)</span>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {#each [0, 1, 2] as i}

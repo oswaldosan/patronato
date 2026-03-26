@@ -46,9 +46,14 @@
         <h1 class="page-title">Editar Proyecto</h1>
         <p class="text-slate-600 mt-1">ID: {data.proyecto.id}</p>
       </div>
-      <Badge variant={data.proyecto.publicado ? 'success' : 'warning'}>
-        {data.proyecto.publicado ? 'Publicado' : 'Borrador'}
-      </Badge>
+      <div class="flex items-center gap-2">
+        <Badge variant={data.proyecto.publicado ? 'success' : 'warning'}>
+          {data.proyecto.publicado ? 'Publicado' : 'Borrador'}
+        </Badge>
+        {#if data.proyecto.activo}
+          <Badge variant="info">Proyecto Activo</Badge>
+        {/if}
+      </div>
     </div>
   </div>
 
@@ -60,7 +65,7 @@
 
   {#if form?.success}
     <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm">
-      {form.published ? 'Proyecto publicado correctamente' : form.unpublished ? 'Proyecto despublicado' : 'Proyecto actualizado correctamente'}
+      {form.published ? 'Proyecto publicado correctamente' : form.unpublished ? 'Proyecto despublicado' : form.activated ? 'Proyecto activado - ahora es el proyecto de recaudación activo' : form.deactivated ? 'Proyecto desactivado' : 'Proyecto actualizado correctamente'}
     </div>
   {/if}
 
@@ -130,6 +135,26 @@
         </div>
 
         <div>
+          <label for="meta" class="label">
+            Meta de recaudación (L.)
+            <span class="text-slate-400 font-normal">(para el progress bar público)</span>
+          </label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">L.</span>
+            <input
+              type="number"
+              id="meta"
+              name="meta"
+              step="0.01"
+              min="0.01"
+              value={data.proyecto.meta ?? ''}
+              class="input pl-10"
+              placeholder="0.00"
+            />
+          </div>
+        </div>
+
+        <div>
           <span class="label mb-3">Fotografías</span>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {#each [1, 2, 3] as i}
@@ -179,6 +204,12 @@
             <p class="text-slate-500">Gasto total</p>
             <p class="text-2xl font-bold text-primary-700">{formatCurrency(data.proyecto.gastoTotal)}</p>
           </div>
+          {#if data.proyecto.meta}
+            <div>
+              <p class="text-slate-500">Meta de recaudación</p>
+              <p class="font-bold text-blue-600">{formatCurrency(data.proyecto.meta)}</p>
+            </div>
+          {/if}
           <div>
             <p class="text-slate-500">Creado</p>
             <p class="font-medium">{formatDateTime(data.proyecto.createdAt)}</p>
@@ -190,8 +221,45 @@
         </div>
       </div>
 
+      <div class="card p-6">
+        <h3 class="font-display font-semibold text-slate-800 mb-4">Resumen Financiero</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Aportes vinculados</span>
+            <span class="font-semibold text-green-600">{formatCurrency(data.financiero.totalAportes)}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Egresos vinculados</span>
+            <span class="font-semibold text-red-600">{formatCurrency(data.financiero.totalEgresos)}</span>
+          </div>
+          <div class="border-t border-slate-200 pt-2 flex justify-between">
+            <span class="text-slate-600 font-medium">Balance</span>
+            <span class="font-bold {data.financiero.totalAportes - data.financiero.totalEgresos >= 0 ? 'text-green-700' : 'text-red-700'}">
+              {formatCurrency(data.financiero.totalAportes - data.financiero.totalEgresos)}
+            </span>
+          </div>
+          <div class="text-xs text-slate-400 pt-1">
+            {data.financiero.countAportes} aporte{data.financiero.countAportes !== 1 ? 's' : ''} · {data.financiero.countEgresos} egreso{data.financiero.countEgresos !== 1 ? 's' : ''}
+          </div>
+        </div>
+      </div>
+
       <div class="card p-6 space-y-3">
         <h3 class="font-display font-semibold text-slate-800 mb-4">Acciones</h3>
+
+        {#if !data.proyecto.activo}
+          <form method="POST" action="?/activate">
+            <button type="submit" class="btn bg-blue-600 text-white hover:bg-blue-700 w-full">
+              🎯 Activar como Proyecto Actual
+            </button>
+          </form>
+        {:else}
+          <form method="POST" action="?/deactivate">
+            <button type="submit" class="btn btn-secondary w-full">
+              Desactivar Proyecto
+            </button>
+          </form>
+        {/if}
 
         {#if !data.proyecto.publicado}
           <form method="POST" action="?/publish">
