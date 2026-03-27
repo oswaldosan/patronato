@@ -66,7 +66,7 @@
         class="card p-6 space-y-6"
       >
         <div>
-          <label for="donanteId" class="label">Donante *</label>
+          <label for="donanteId" class="label">Aportante *</label>
           <select
             id="donanteId"
             name="donanteId"
@@ -205,7 +205,7 @@
           {/if}
 
           <div>
-            <p class="text-slate-500">Donante</p>
+            <p class="text-slate-500">Aportante</p>
             <a href="/admin/donantes/{data.donacion.donante.id}" class="font-medium text-primary-600 hover:underline">
               {data.donacion.donante.nombreNegocio || data.donacion.donante.nombre}
             </a>

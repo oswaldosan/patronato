@@ -120,17 +120,17 @@
     </div>
   </div>
   
-  <!-- Historial de Donaciones -->
+  <!-- Historial de aportes -->
   <div class="card overflow-hidden">
     <div class="px-6 py-4 border-b border-slate-200">
       <h2 class="font-display font-semibold text-lg text-slate-800">
-        Historial de Donaciones
+        Historial de aportes
       </h2>
     </div>
     
     {#if data.donaciones.length === 0}
       <div class="p-12 text-center">
-        <p class="text-slate-500">No hay donaciones verificados para mostrar.</p>
+        <p class="text-slate-500">No hay aportes verificados para mostrar.</p>
       </div>
     {:else}
       <div class="divide-y divide-slate-100">

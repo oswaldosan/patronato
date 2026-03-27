@@ -102,7 +102,7 @@ export const load: PageServerLoad = async () => {
     ORDER BY mes ASC
   `;
 
-  // Top 10 donantes
+  // Top 10 aportantes
   const topDonantes = await prisma.aporte.groupBy({
     by: ['donanteId'],
     _sum: { monto: true },

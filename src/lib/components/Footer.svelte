@@ -19,10 +19,11 @@
         <h3 class="font-display font-semibold text-white mb-4">Navegación</h3>
         <ul class="space-y-2 text-sm">
           <li><a href="/" class="hover:text-accent-400 transition-colors">Inicio</a></li>
-          <li><a href="/movimientos" class="hover:text-accent-400 transition-colors">Donaciones</a></li>
+          <li><a href="/como-donar" class="hover:text-accent-400 transition-colors">Cómo aportar</a></li>
+          <li><a href="/movimientos" class="hover:text-accent-400 transition-colors">Aportes</a></li>
           <li><a href="/egresos" class="hover:text-accent-400 transition-colors">Gastos</a></li>
           <li><a href="/proyectos" class="hover:text-accent-400 transition-colors">Proyectos</a></li>
-          <li><a href="/buscar" class="hover:text-accent-400 transition-colors">Buscar Donante</a></li>
+          <li><a href="/buscar" class="hover:text-accent-400 transition-colors">Buscar Aportante</a></li>
           <li><a href="/estadisticas" class="hover:text-accent-400 transition-colors">Estadísticas</a></li>
         </ul>
       </div>

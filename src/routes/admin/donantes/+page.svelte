@@ -18,21 +18,21 @@
 </script>
 
 <svelte:head>
-  <title>Donantes - Admin</title>
+  <title>Aportantes - Admin</title>
 </svelte:head>
 
 <div class="space-y-6">
   <!-- Header -->
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
     <div>
-      <h1 class="page-title">Donantes</h1>
-      <p class="text-slate-600 mt-1">{data.pagination.total} donante{data.pagination.total !== 1 ? 's' : ''} registrado{data.pagination.total !== 1 ? 's' : ''}</p>
+      <h1 class="page-title">Aportantes</h1>
+      <p class="text-slate-600 mt-1">{data.pagination.total} aportante{data.pagination.total !== 1 ? 's' : ''} registrado{data.pagination.total !== 1 ? 's' : ''}</p>
     </div>
     <a href="/admin/donantes/nuevo" class="btn btn-primary">
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
       </svg>
-      Nuevo Donante
+      Nuevo Aportante
     </a>
   </div>
   
@@ -62,10 +62,10 @@
   <!-- Table -->
   {#if data.donantes.length === 0}
     <EmptyState 
-      title="No hay donantes" 
-      description="No se encontraron donantes con los filtros aplicados."
+      title="No hay aportantes"
+      description="No se encontraron aportantes con los filtros aplicados."
       icon="👥"
-      actionLabel="Agregar donante"
+      actionLabel="Agregar aportante"
       actionHref="/admin/donantes/nuevo"
     />
   {:else}

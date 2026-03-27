@@ -27,10 +27,10 @@
   <!-- Header -->
   <div class="mb-8">
     <a href="/admin/donantes" class="text-sm text-slate-600 hover:text-primary-600 mb-2 inline-block">
-      ← Volver a donantes
+      ← Volver a aportantes
     </a>
     <div class="flex items-center justify-between">
-      <h1 class="page-title">Editar Donante</h1>
+      <h1 class="page-title">Editar Aportante</h1>
       <button 
         onclick={() => showDeleteConfirm = true}
         class="btn btn-danger btn-sm"
@@ -48,7 +48,7 @@
   
   {#if form?.success}
     <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm">
-      Donante actualizado correctamente
+      Aportante actualizado correctamente
     </div>
   {/if}
   
@@ -69,7 +69,7 @@
       >
         <!-- Tipo -->
         <div>
-          <label class="label">Tipo de donante</label>
+          <label class="label">Tipo de aportante</label>
           <div class="flex gap-4">
             <label class="flex items-center gap-2 cursor-pointer">
               <input 
@@ -193,7 +193,7 @@
               checked={data.donante.activo}
               class="w-4 h-4 rounded text-primary-600"
             />
-            <span class="text-sm font-medium">Donante activo</span>
+            <span class="text-sm font-medium">Aportante activo</span>
           </label>
         </div>
         
@@ -276,10 +276,10 @@
     <div class="absolute inset-0 bg-black/50" onclick={() => showDeleteConfirm = false}></div>
     <div class="relative bg-white rounded-2xl p-6 max-w-sm w-full">
       <h3 class="text-lg font-display font-semibold text-slate-900 mb-2">
-        ¿Eliminar donante?
+        ¿Eliminar aportante?
       </h3>
       <p class="text-slate-600 mb-6">
-        Esta acción no se puede deshacer. Solo puedes eliminar donantes sin aportes registrados.
+        Esta acción no se puede deshacer. Solo puedes eliminar aportantes sin aportes registrados.
       </p>
       <div class="flex justify-end gap-3">
         <button 

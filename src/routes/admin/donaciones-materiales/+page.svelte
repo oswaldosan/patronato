@@ -50,7 +50,7 @@
         <input
           type="text"
           bind:value={search}
-          placeholder="Buscar donante..."
+          placeholder="Buscar aportante..."
           class="input"
           onkeyup={(e) => e.key === 'Enter' && aplicarFiltros()}
         />
@@ -81,7 +81,7 @@
         <thead>
           <tr>
             <th>Fecha</th>
-            <th>Donante</th>
+            <th>Aportante</th>
             <th>Material</th>
             <th>Cantidad</th>
             <th class="text-right">Valor Est.</th>

@@ -133,7 +133,7 @@ export const estadoDonacionMaterialLabels: Record<string, string> = {
   ANULADO: 'Anulado',
 };
 
-// Labels para tipos de donante
+// Labels para tipos de aportante (persona / empresa)
 export const tipDonanteLabels: Record<string, string> = {
   PERSONA: 'Persona',
   EMPRESA: 'Empresa',

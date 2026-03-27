@@ -12,7 +12,7 @@ const optionalGastoTotal = z.preprocess((val) => {
   return Number.isFinite(n) ? n : undefined;
 }, z.union([z.null(), z.number().min(0, 'El gasto no puede ser negativo')]));
 
-// Donante
+// Aportante (modelo Prisma: Donante)
 export const donanteSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres').max(200),
   tipo: z.enum(['PERSONA', 'EMPRESA']),
@@ -45,7 +45,7 @@ export const rubroUpdateSchema = rubroSchema.partial();
 
 // Aporte
 export const aporteSchema = z.object({
-  donanteId: z.string().cuid('ID de donante inválido'),
+  donanteId: z.string().cuid('ID de aportante inválido'),
   rubroId: z.string().cuid('ID de rubro inválido'),
   fecha: z.string().or(z.date()).transform((val) => new Date(val)),
   monto: z.number().positive('El monto debe ser mayor a 0').or(
@@ -117,7 +117,7 @@ export const proyectoUpdateSchema = proyectoSchema.partial();
 
 // Donación de material
 export const donacionMaterialSchema = z.object({
-  donanteId: z.string().cuid('ID de donante inválido'),
+  donanteId: z.string().cuid('ID de aportante inválido'),
   descripcion: z.string().min(3, 'La descripción debe tener al menos 3 caracteres').max(500),
   cantidad: z.string().max(100).optional().nullable(),
   valorEstimado: z.number().positive('El valor estimado debe ser mayor a 0').or(

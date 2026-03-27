@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-  <title>Cómo Donar - Patronato Pro Mejoramiento de Monterrey</title>
+  <title>Cómo aportar - Patronato Pro Mejoramiento de Monterrey</title>
 </svelte:head>
 
 <!-- Hero -->
@@ -36,11 +36,11 @@
       Tu aporte transforma Monterrey
     </div>
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-5 tracking-tight">
-      ¿Cómo Puedo <span class="text-accent-400">Donar</span>?
+      ¿Cómo puedo <span class="text-accent-400">aportar</span>?
     </h1>
     <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-      Tu generosidad hace posible las obras que transforman nuestra comunidad. 
-      Aquí te explicamos cómo puedes realizar tu donativo de forma fácil y segura.
+      Cada aporte fortalece las obras que transforman nuestra comunidad.
+      Aquí te explicamos cómo puedes hacer tu aporte de forma fácil y segura.
     </p>
   </div>
 
@@ -110,9 +110,9 @@
         </div>
       </div>
 
-      <!-- Pasos para donar -->
+      <!-- Pasos para aportar -->
       <div class="space-y-6">
-        <h2 class="font-display font-bold text-2xl text-slate-900">Pasos para Donar</h2>
+        <h2 class="font-display font-bold text-2xl text-slate-900">Pasos para aportar</h2>
         
         <div class="space-y-4">
           <!-- Paso 1 -->
@@ -145,7 +145,7 @@
                 Envía una foto o captura del comprobante de depósito junto con tu número de identidad al siguiente número:
               </p>
               <a
-                href="https://wa.me/50433363789?text=Hola%2C%20quiero%20confirmar%20mi%20donativo%20al%20Patronato%20Pro%20Mejoramiento%20de%20Monterrey"
+                href="https://wa.me/50433363789?text=Hola%2C%20quiero%20confirmar%20mi%20aporte%20al%20Patronato%20Pro%20Mejoramiento%20de%20Monterrey"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 px-4 py-2.5 bg-green-600 text-white rounded-xl font-semibold text-sm hover:bg-green-700 transition-colors shadow-sm"
@@ -168,7 +168,7 @@
             <div class="card p-5 flex-1 group-hover:border-blue-300 transition-colors">
               <h3 class="font-display font-semibold text-slate-900 mb-1">Confirmación</h3>
               <p class="text-sm text-slate-600">
-                Una vez verificado tu depósito, tu donativo aparecerá registrado en nuestro portal de transparencia.
+                Una vez verificado tu depósito, tu aporte aparecerá registrado en nuestro portal de transparencia.
                 Recibirás una confirmación por WhatsApp.
               </p>
             </div>
@@ -183,7 +183,7 @@
               <p class="font-semibold mb-1">¿Prefieres registrarlo aquí mismo?</p>
               <p>
                 También puedes usar el formulario más abajo para enviar tu comprobante directamente.
-                Lo revisaremos y confirmaremos tu donativo.
+                Lo revisaremos y confirmaremos tu aporte.
               </p>
             </div>
           </div>
@@ -208,7 +208,7 @@
       </h2>
       <p class="text-slate-500 max-w-lg mx-auto">
         Completa el formulario con tus datos y adjunta una foto del comprobante de depósito. 
-        Lo revisaremos y confirmaremos tu donativo.
+        Lo revisaremos y confirmaremos tu aporte.
       </p>
     </div>
 
@@ -221,7 +221,7 @@
           ¡Solicitud Enviada!
         </h3>
         <p class="text-green-700 mb-4">
-          Hemos recibido tu comprobante. Lo revisaremos y te contactaremos por WhatsApp para confirmar tu donativo.
+          Hemos recibido tu comprobante. Lo revisaremos y te contactaremos por WhatsApp para confirmar tu aporte.
         </p>
         <p class="text-sm text-green-600">
           Gracias por contribuir al desarrollo de Monterrey.
@@ -365,7 +365,7 @@
         </button>
 
         <p class="text-xs text-center text-slate-400">
-          Tu información se maneja de forma confidencial y solo será utilizada para verificar tu donativo.
+          Tu información se maneja de forma confidencial y solo será utilizada para verificar tu aporte.
         </p>
       </form>
     {/if}
@@ -379,7 +379,7 @@
       Cada lempira cuenta
     </h2>
     <p class="text-white/75 mb-8 text-lg">
-      Tu donativo, sin importar el monto, contribuye directamente a las obras que transforman Monterrey. 
+      Tu aporte, sin importar el monto, contribuye directamente a las obras que transforman Monterrey. 
       Juntos construimos una comunidad mejor.
     </p>
     <div class="flex flex-wrap justify-center gap-4">
@@ -387,7 +387,7 @@
         Ver Portal de Transparencia
       </a>
       <a
-        href="https://wa.me/50433363789?text=Hola%2C%20quiero%20información%20sobre%20cómo%20donar%20al%20Patronato%20de%20Monterrey"
+        href="https://wa.me/50433363789?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20aportar%20al%20Patronato%20de%20Monterrey"
         target="_blank"
         rel="noopener noreferrer"
         class="btn bg-green-600 text-white hover:bg-green-700 shadow-lg"

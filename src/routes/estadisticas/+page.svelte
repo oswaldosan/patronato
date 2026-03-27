@@ -38,14 +38,14 @@
       });
     }
     
-    // Bar Chart - Top Donantes
+    // Bar Chart - Top aportantes
     if (barChartCanvas && data.topDonantes.length > 0) {
       new Chart(barChartCanvas, {
         type: 'bar',
         data: {
           labels: data.topDonantes.map(d => d.nombreNegocio || d.nombre),
           datasets: [{
-            label: 'Total donado',
+            label: 'Total aportado',
             data: data.topDonantes.map(d => d.total),
             backgroundColor: '#22c55e',
             borderRadius: 8,
@@ -207,13 +207,13 @@
       color="blue"
     />
     <StatCard 
-      title="Donantes" 
+      title="Aportantes" 
       value={data.totales.donantes} 
       icon="👥" 
       color="purple"
     />
     <StatCard 
-      title="Donaciones" 
+      title="Aportes" 
       value={data.totales.donaciones} 
       icon="🎁" 
       color="yellow"
@@ -277,7 +277,7 @@
               ></div>
               <div>
                 <p class="font-medium text-slate-900">{rubro.nombre}</p>
-                <p class="text-xs text-slate-500">{rubro.cantidad} donaciones</p>
+                <p class="text-xs text-slate-500">{rubro.cantidad} aporte{rubro.cantidad !== 1 ? 's' : ''}</p>
               </div>
             </div>
             <div class="text-right">
@@ -291,10 +291,10 @@
       </div>
     </div>
     
-    <!-- Por Tipo de Donante -->
+    <!-- Por tipo de aportante -->
     <div class="card p-6">
       <h2 class="font-display font-semibold text-lg text-slate-800 mb-4">
-        Por Tipo de Donante
+        Por tipo de aportante
       </h2>
       <div class="space-y-4">
         {#if data.porTipoDonante.PERSONA}
@@ -304,7 +304,7 @@
               <span class="font-bold text-primary-600">{formatCurrency(data.porTipoDonante.PERSONA.total)}</span>
             </div>
             <div class="flex items-center justify-between text-sm text-slate-500">
-              <span>{data.porTipoDonante.PERSONA.cantidad} donaciones</span>
+              <span>{data.porTipoDonante.PERSONA.cantidad} aporte{data.porTipoDonante.PERSONA.cantidad !== 1 ? 's' : ''}</span>
               <span>{calculatePercentage(data.porTipoDonante.PERSONA.total, data.totales.ingresos)}%</span>
             </div>
           </div>
@@ -317,7 +317,7 @@
               <span class="font-bold text-blue-600">{formatCurrency(data.porTipoDonante.EMPRESA.total)}</span>
             </div>
             <div class="flex items-center justify-between text-sm text-slate-500">
-              <span>{data.porTipoDonante.EMPRESA.cantidad} donaciones</span>
+              <span>{data.porTipoDonante.EMPRESA.cantidad} aporte{data.porTipoDonante.EMPRESA.cantidad !== 1 ? 's' : ''}</span>
               <span>{calculatePercentage(data.porTipoDonante.EMPRESA.total, data.totales.ingresos)}%</span>
             </div>
           </div>
@@ -340,10 +340,10 @@
     </div>
   </div>
   
-  <!-- Top Donantes -->
+  <!-- Top aportantes -->
   <div class="card p-6">
     <h2 class="font-display font-semibold text-lg text-slate-800 mb-4">
-      🏆 Top 10 Donantes
+      🏆 Top 10 aportantes
     </h2>
     <div class="h-96">
       <canvas bind:this={barChartCanvas}></canvas>
@@ -354,9 +354,9 @@
         <thead>
           <tr>
             <th class="w-12">#</th>
-            <th>Donante</th>
+            <th>Aportante</th>
             <th class="text-center">Tipo</th>
-            <th class="text-center">Donaciones</th>
+            <th class="text-center">Aportes</th>
             <th class="text-right">Total</th>
             <th class="text-right">%</th>
           </tr>

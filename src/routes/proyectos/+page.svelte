@@ -21,7 +21,7 @@
       Proyectos Realizados
     </h1>
     <p class="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-      Cada proyecto es un paso hacia el desarrollo de Monterrey. Aquí documentamos las obras y mejoras realizadas con las donaciones de nuestra comunidad.
+      Cada proyecto es un paso hacia el desarrollo de Monterrey. Aquí documentamos las obras y mejoras realizadas con los aportes de nuestra comunidad.
     </p>
   </div>
 

@@ -47,16 +47,16 @@
     class="card p-6 space-y-6"
   >
     <div>
-      <label for="donanteId" class="label">Donante *</label>
+      <label for="donanteId" class="label">Aportante *</label>
       <Combobox
         name="donanteId"
         options={donanteOptions}
         bind:value={donanteId}
-        placeholder="Buscar donante..."
+        placeholder="Buscar aportante..."
         required
       />
       <p class="text-xs text-slate-500 mt-1">
-        ¿Donante nuevo? <a href="/admin/donantes/nuevo" class="text-primary-600 hover:underline">Crear primero</a>
+        ¿Aportante nuevo? <a href="/admin/donantes/nuevo" class="text-primary-600 hover:underline">Crear primero</a>
       </p>
     </div>
 

@@ -140,12 +140,12 @@
   </section>
 
   <section class="card p-6">
-    <h2 class="font-display font-semibold text-slate-800 mb-4">Aportes por donante</h2>
+    <h2 class="font-display font-semibold text-slate-800 mb-4">Aportes por aportante</h2>
     <div class="overflow-x-auto">
       <table class="table">
         <thead>
           <tr>
-            <th>Donante</th>
+            <th>Aportante</th>
             <th class="text-right">Total</th>
             <th class="text-right">Aportes</th>
           </tr>

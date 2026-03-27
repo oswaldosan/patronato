@@ -8,16 +8,16 @@
 </script>
 
 <svelte:head>
-  <title>Nuevo Donante - Admin</title>
+  <title>Nuevo Aportante - Admin</title>
 </svelte:head>
 
 <div class="max-w-2xl mx-auto">
   <!-- Header -->
   <div class="mb-8">
     <a href="/admin/donantes" class="text-sm text-slate-600 hover:text-primary-600 mb-2 inline-block">
-      ← Volver a donantes
+      ← Volver a aportantes
     </a>
-    <h1 class="page-title">Nuevo Donante</h1>
+    <h1 class="page-title">Nuevo Aportante</h1>
   </div>
   
   {#if form?.error}
@@ -39,7 +39,7 @@
   >
     <!-- Tipo -->
     <div>
-      <label class="label">Tipo de donante</label>
+      <label class="label">Tipo de aportante</label>
       <div class="flex gap-4">
         <label class="flex items-center gap-2 cursor-pointer">
           <input 
@@ -159,7 +159,7 @@
     <div class="flex justify-end gap-3 pt-4 border-t border-slate-200">
       <a href="/admin/donantes" class="btn btn-secondary">Cancelar</a>
       <button type="submit" class="btn btn-primary" disabled={loading}>
-        {loading ? 'Guardando...' : 'Crear Donante'}
+        {loading ? 'Guardando...' : 'Crear Aportante'}
       </button>
     </div>
   </form>

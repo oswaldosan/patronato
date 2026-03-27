@@ -67,7 +67,7 @@
       <StatCard title="Ingresos" value={data.stats.totalIngresos} icon="💰" isCurrency={true} color="blue" />
       <StatCard title="Egresos" value={data.stats.totalEgresos} icon="📤" isCurrency={true} color="red" />
       <StatCard title="Balance" value={data.stats.balance} icon="📊" isCurrency={true} color="green" />
-      <StatCard title="Donantes" value={data.stats.totalDonantes} icon="👥" color="purple" />
+      <StatCard title="Aportantes" value={data.stats.totalDonantes} icon="👥" color="purple" />
       <StatCard title="Donaciones pendientes" value={data.stats.aportesPendientes} icon="⏳" color="yellow" />
       <StatCard title="Gastos pendientes" value={data.stats.egresosPendientes} icon="🧾" color="yellow" />
     </div>
@@ -96,7 +96,7 @@
       <a href="/admin/donantes/nuevo" class="card p-4 flex items-center gap-3 hover:border-purple-300 transition-colors group">
         <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">👤</div>
         <div>
-          <p class="font-medium text-slate-900">Nuevo Donante</p>
+          <p class="font-medium text-slate-900">Nuevo Aportante</p>
           <p class="text-xs text-slate-500">Agregar persona/empresa</p>
         </div>
       </a>

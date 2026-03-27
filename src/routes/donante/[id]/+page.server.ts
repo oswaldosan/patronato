@@ -17,7 +17,7 @@ export const load: PageServerLoad = async ({ params }) => {
   });
   
   if (!donante) {
-    throw error(404, 'Donante no encontrado');
+    throw error(404, 'Aportante no encontrado');
   }
   
   const totalDonado = donante.aportes.reduce((sum, a) => sum + a.monto.toNumber(), 0);

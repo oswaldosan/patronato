@@ -7,7 +7,7 @@
   let sidebarOpen = $state(false);
   const baseNavItems = [
     { href: '/admin', label: 'Dashboard', icon: '📊' },
-    { href: '/admin/donantes', label: 'Donantes', icon: '👥' },
+    { href: '/admin/donantes', label: 'Aportantes', icon: '👥' },
     { href: '/admin/rubros', label: 'Categorías', icon: '📁' },
     { href: '/admin/aportes', label: 'Donaciones', icon: '💰' },
     { href: '/admin/solicitudes', label: 'Solicitudes', icon: '📩' },

@@ -19,15 +19,15 @@
 </script>
 
 <svelte:head>
-  <title>Buscar Donante - Patronato Pro Mejoramiento de Monterrey</title>
+  <title>Buscar Aportante - Patronato Pro Mejoramiento de Monterrey</title>
 </svelte:head>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <!-- Header -->
   <div class="text-center mb-12">
-    <h1 class="page-title mb-4">Buscar Donante</h1>
+    <h1 class="page-title mb-4">Buscar Aportante</h1>
     <p class="text-slate-600 max-w-xl mx-auto">
-      Busca por nombre de persona o empresa para ver el historial de donaciones y el total acumulado.
+      Busca por nombre de persona o empresa para ver el historial de aportes y el total acumulado.
     </p>
   </div>
   
@@ -48,7 +48,7 @@
     {#if data.donantes.length === 0}
       <EmptyState 
         title="Sin resultados" 
-        description="No se encontraron donantes con ese nombre. Intenta con otro término."
+        description="No se encontraron aportantes con ese nombre. Intenta con otro término."
         icon="🔍"
       />
     {:else}
@@ -87,7 +87,7 @@
             </div>
             
             <div class="text-right">
-              <p class="text-sm text-slate-500">Total donado</p>
+              <p class="text-sm text-slate-500">Total aportado</p>
               <p class="text-2xl font-display font-bold text-primary-600">
                 {formatCurrency(donante.totalDonado)}
               </p>
@@ -108,7 +108,7 @@
         Ingresa un término de búsqueda
       </h3>
       <p class="text-slate-500 max-w-md mx-auto">
-        Puedes buscar por nombre de persona, nombre de empresa o negocio para ver su historial completo de donaciones.
+        Puedes buscar por nombre de persona, nombre de empresa o negocio para ver su historial completo de aportes.
       </p>
     </div>
   {/if}

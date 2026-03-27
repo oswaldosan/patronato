@@ -49,7 +49,7 @@
         data: {
           labels: data.topDonantes.slice(0, 8).map(d => d.nombreNegocio || d.nombre),
           datasets: [{
-            label: 'Total donado',
+            label: 'Total aportado',
             data: data.topDonantes.slice(0, 8).map(d => d.total),
             backgroundColor: '#15803d',
             borderRadius: 8,
@@ -79,7 +79,7 @@
         data: {
           labels: meses,
           datasets: [{
-            label: 'Donaciones',
+            label: 'Aportes',
             data: data.donacionesPorMes.map(m => m.total),
             borderColor: '#15803d',
             backgroundColor: 'rgba(21, 128, 61, 0.08)',
@@ -135,12 +135,12 @@
 
       <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
         Trabajamos juntos por el desarrollo de Monterrey con total transparencia. 
-        Aquí puedes consultar cada donación recibida y cada gasto realizado.
+        Aquí puedes consultar cada aporte recibido y cada gasto realizado.
       </p>
 
       <div class="mb-8">
         <a href="/como-donar" class="inline-flex items-center gap-2 px-8 py-3.5 bg-accent-500 text-white rounded-xl font-display font-bold text-lg hover:bg-accent-600 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200">
-          🤝 ¿Cómo Puedo Donar?
+          🤝 ¿Cómo Puedo Aportar?
         </a>
       </div>
 
@@ -176,7 +176,7 @@
           icon="💰"
           isCurrency={true}
           color="blue"
-          subtitle="Donaciones verificadas"
+          subtitle="Aportes verificados"
         />
       </div>
       <div class="animate-slide-up" style="animation-delay: 0.2s">
@@ -201,28 +201,28 @@
       </div>
       <div class="animate-slide-up" style="animation-delay: 0.4s">
         <StatCard
-          title="Donantes"
+          title="Aportantes"
           value={data.stats.totalDonantes}
           icon="🤝"
           color="purple"
-          subtitle="{data.stats.totalAportes} donaciones totales"
+          subtitle="{data.stats.totalAportes} aportes en total"
         />
       </div>
       <div class="animate-slide-up" style="animation-delay: 0.5s">
         <StatCard
-          title="Materiales Donados"
+          title="Materiales aportados"
           value={data.materialesStats.totalValor}
           icon="📦"
           isCurrency={true}
           color="green"
-          subtitle="{data.materialesStats.totalDonaciones} donaciones de materiales"
+          subtitle="{data.materialesStats.totalDonaciones} aportes en especie"
         />
       </div>
     </div>
   </div>
 </section>
 
-<!-- Top Donantes - Leaderboard -->
+<!-- Top aportantes - Leaderboard -->
 <section class="py-16 relative overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-b from-slate-50 via-primary-50/30 to-slate-50"></div>
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary-100/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
@@ -233,10 +233,10 @@
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
-        Leaderboard de Donantes
+        Leaderboard de Aportantes
       </div>
       <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
-        Nuestros Principales Benefactores
+        Nuestros principales aportantes
       </h2>
       <p class="text-slate-500 max-w-lg mx-auto">
         Reconocemos a quienes hacen posible el desarrollo de Monterrey
@@ -245,7 +245,7 @@
 
     {#if data.topDonantes.length === 0}
       <div class="card p-12 text-center">
-        <p class="text-slate-500">Aún no hay donantes registrados.</p>
+        <p class="text-slate-500">Aún no hay aportantes registrados.</p>
       </div>
     {:else}
       {#if data.topDonantes.length >= 3}
@@ -271,7 +271,7 @@
                 </Badge>
               </div>
               <p class="text-2xl font-display font-bold text-primary-700 mt-3">{formatCurrency(data.topDonantes[1].total)}</p>
-              <p class="text-xs text-slate-400 mt-1">{data.topDonantes[1].aportes} donaciones</p>
+              <p class="text-xs text-slate-400 mt-1">{data.topDonantes[1].aportes} aportes</p>
             </div>
           </div>
 
@@ -301,7 +301,7 @@
                 </Badge>
               </div>
               <p class="text-3xl font-display font-bold text-primary-700 mt-4">{formatCurrency(data.topDonantes[0].total)}</p>
-              <p class="text-sm text-slate-400 mt-1">{data.topDonantes[0].aportes} donaciones</p>
+              <p class="text-sm text-slate-400 mt-1">{data.topDonantes[0].aportes} aportes</p>
             </div>
           </div>
 
@@ -326,7 +326,7 @@
                 </Badge>
               </div>
               <p class="text-2xl font-display font-bold text-primary-700 mt-3">{formatCurrency(data.topDonantes[2].total)}</p>
-              <p class="text-xs text-slate-400 mt-1">{data.topDonantes[2].aportes} donaciones</p>
+              <p class="text-xs text-slate-400 mt-1">{data.topDonantes[2].aportes} aportes</p>
             </div>
           </div>
         </div>
@@ -353,7 +353,7 @@
               </Badge>
               <div class="text-right shrink-0">
                 <span class="font-bold text-primary-700 font-display">{formatCurrency(donante.total)}</span>
-                <span class="block text-xs text-slate-400">{donante.aportes} donaciones</span>
+                <span class="block text-xs text-slate-400">{donante.aportes} aportes</span>
               </div>
             </div>
           {/each}
@@ -365,7 +365,7 @@
           <svg class="w-4 h-4 text-slate-400 group-hover:text-primary-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          Buscar mi historial de donaciones
+          Buscar mi historial de aportes
         </a>
       </div>
     {/if}
@@ -379,14 +379,14 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div class="card p-6">
-        <h3 class="font-display font-semibold text-lg text-slate-800 mb-6">Donaciones por Categoría</h3>
+        <h3 class="font-display font-semibold text-lg text-slate-800 mb-6">Aportes por categoría</h3>
         <div class="h-80">
           <canvas bind:this={pieChartCanvas}></canvas>
         </div>
       </div>
 
       <div class="card p-6">
-        <h3 class="font-display font-semibold text-lg text-slate-800 mb-6">Top Donantes</h3>
+        <h3 class="font-display font-semibold text-lg text-slate-800 mb-6">Top aportantes</h3>
         <div class="h-80">
           <canvas bind:this={barChartCanvas}></canvas>
         </div>
@@ -394,7 +394,7 @@
     </div>
 
     <div class="card p-6 mt-8">
-      <h3 class="font-display font-semibold text-lg text-slate-800 mb-6">Tendencia de Donaciones Mensuales</h3>
+      <h3 class="font-display font-semibold text-lg text-slate-800 mb-6">Tendencia de aportes mensuales</h3>
       <div class="h-64">
         <canvas bind:this={lineChartCanvas}></canvas>
       </div>
@@ -402,11 +402,11 @@
   </div>
 </section>
 
-<!-- Últimas Donaciones -->
+<!-- Últimos aportes -->
 <section class="py-12 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center mb-8">
-      <h2 class="section-title">Últimas Donaciones</h2>
+      <h2 class="section-title">Últimos aportes</h2>
       <a href="/movimientos" class="btn btn-outline btn-sm">
         Ver todas
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -417,7 +417,7 @@
 
     {#if data.ultimosAportes.length === 0}
       <div class="card p-12 text-center">
-        <p class="text-slate-500">Aún no hay donaciones registradas.</p>
+        <p class="text-slate-500">Aún no hay aportes registrados.</p>
       </div>
     {:else}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -443,7 +443,7 @@
   </div>
 </section>
 
-<!-- Donadores de Materiales -->
+<!-- Aportantes de materiales -->
 {#if data.donadoresMateriales.length > 0}
   <section class="py-16 relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-white via-accent-50/20 to-white"></div>
@@ -455,10 +455,10 @@
             <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
             <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
-          Donaciones en Especie
+          Aportes en especie
         </div>
         <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
-          Donadores de Materiales
+          Aportantes de materiales
         </h2>
         <p class="text-slate-500 max-w-lg mx-auto">
           Gracias a quienes aportan materiales para las obras de nuestra comunidad
@@ -478,7 +478,7 @@
               <div class="flex-1 min-w-0">
                 <p class="text-slate-800 leading-relaxed">
                   <span class="font-display font-bold text-slate-900">{entrada.donante}</span>
-                  {' '}donó{' '}
+                  {' '}aportó{' '}
                   {#each entrada.materiales as material, j}
                     {#if j > 0 && j === entrada.materiales.length - 1}
                       {' '}y{' '}
@@ -510,13 +510,13 @@
     </p>
     <div class="flex flex-wrap justify-center gap-4">
       <a href="/como-donar" class="btn bg-accent-500 text-white hover:bg-accent-600 shadow-lg font-semibold text-lg px-8 py-3">
-        ¿Cómo Puedo Donar?
+        ¿Cómo Puedo Aportar?
       </a>
       <a href="/buscar" class="btn bg-white text-primary-800 hover:bg-slate-100 shadow-lg font-semibold">
         Buscar mi historial
       </a>
       <a href="/movimientos" class="btn border-2 border-white/60 text-white hover:bg-white/10">
-        Ver todas las donaciones
+        Ver todos los aportes
       </a>
     </div>
   </div>

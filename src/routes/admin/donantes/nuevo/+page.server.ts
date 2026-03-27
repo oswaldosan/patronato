@@ -41,7 +41,7 @@ export const actions: Actions = {
 
     if (existente) {
       return fail(400, {
-        error: 'La identidad / RTN ya está registrada en otro donante',
+        error: 'La identidad / RTN ya está registrada en otro aportante',
         data,
       });
     }
@@ -52,9 +52,9 @@ export const actions: Actions = {
         data: result.data,
       });
     } catch (e) {
-      console.error('Error creando donante', e);
+      console.error('Error creando aportante', e);
       return fail(500, {
-        error: 'Error al crear el donante',
+        error: 'Error al crear el aportante',
         data,
       });
     }
@@ -63,7 +63,7 @@ export const actions: Actions = {
     createAuditLog({
       userId: locals.user?.id,
       action: 'CREATE',
-      entity: 'Donante',
+      entity: 'Aportante',
       entityId: donante.id,
       newData: result.data,
     }).catch((err) => console.error('Error en audit log:', err));

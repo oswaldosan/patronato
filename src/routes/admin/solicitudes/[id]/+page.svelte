@@ -61,7 +61,7 @@
     <div class="lg:col-span-2 space-y-6">
       <!-- Datos del solicitante -->
       <div class="card p-6">
-        <h3 class="font-display font-semibold text-slate-800 mb-4">Datos del Donante</h3>
+        <h3 class="font-display font-semibold text-slate-800 mb-4">Datos del aportante</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">Nombre</p>

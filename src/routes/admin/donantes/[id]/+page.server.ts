@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ params }) => {
   }) as DonanteWithAportes | null;
   
   if (!donante) {
-    throw error(404, 'Donante no encontrado');
+    throw error(404, 'Aportante no encontrado');
   }
   
   return {
@@ -82,14 +82,14 @@ export const actions: Actions = {
       return fail(400, { error: message });
     }
 
-    // Verificar si la identificación ya existe en OTRO donante
+    // Verificar si la identificación ya existe en OTRO aportante
     const existente = await prisma.donante.findUnique({
       where: { identificacion: result.data.identificacion },
       select: { id: true },
     });
 
     if (existente && existente.id !== params.id) {
-      return fail(400, { error: 'La identidad / RTN ya está registrada en otro donante' });
+      return fail(400, { error: 'La identidad / RTN ya está registrada en otro aportante' });
     }
     
     const oldData = await prisma.donante.findUnique({
@@ -106,7 +106,7 @@ export const actions: Actions = {
       createAuditLog({
         userId: locals.user?.id,
         action: 'UPDATE',
-        entity: 'Donante',
+        entity: 'Aportante',
         entityId: params.id,
         oldData: oldData as Record<string, unknown>,
         newData: data,
@@ -114,8 +114,8 @@ export const actions: Actions = {
       
       return { success: true };
     } catch (e) {
-      console.error('Error al actualizar donante', e);
-      return fail(500, { error: 'Error al actualizar el donante' });
+      console.error('Error al actualizar aportante', e);
+      return fail(500, { error: 'Error al actualizar el aportante' });
     }
   },
   
@@ -127,7 +127,7 @@ export const actions: Actions = {
     
     if (aportesCount > 0) {
       return fail(400, { 
-        error: 'No se puede eliminar un donante con aportes. Desactívalo en su lugar.' 
+        error: 'No se puede eliminar un aportante con aportes. Desactívalo en su lugar.' 
       });
     }
     
@@ -140,13 +140,13 @@ export const actions: Actions = {
       createAuditLog({
         userId: locals.user?.id,
         action: 'DELETE',
-        entity: 'Donante',
+        entity: 'Aportante',
         entityId: params.id,
       }).catch((err) => console.error('Error en audit log:', err));
       
     } catch (e) {
-      console.error('Error al eliminar donante', e);
-      return fail(500, { error: 'Error al eliminar el donante' });
+      console.error('Error al eliminar aportante', e);
+      return fail(500, { error: 'Error al eliminar el aportante' });
     }
 
     // Redirect FUERA del try-catch para que no sea capturado
