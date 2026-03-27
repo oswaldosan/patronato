@@ -11,6 +11,17 @@ export function formatCurrency(amount: number | string | null | undefined): stri
   }).format(num);
 }
 
+/** Monto aún no capturado (p. ej. gasto total de proyecto al cierre). */
+export function formatCurrencyOptional(
+  amount: number | string | null | undefined,
+  emptyLabel = 'Por definir'
+): string {
+  if (amount === null || amount === undefined || amount === '') return emptyLabel;
+  const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  if (num === null || num === undefined || Number.isNaN(num)) return emptyLabel;
+  return formatCurrency(num);
+}
+
 // Formatear número con separadores
 export function formatNumber(num: number | string | null | undefined): string {
   const n = typeof num === 'string' ? parseFloat(num) : num;

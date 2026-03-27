@@ -1,5 +1,17 @@
 import { z } from 'zod';
 
+/** Monto opcional desde formulario: vacío → null; si viene, ≥ 0. */
+const optionalGastoTotal = z.preprocess((val) => {
+  if (val === '' || val === null || val === undefined) return null;
+  if (typeof val === 'number') {
+    return Number.isFinite(val) ? val : undefined;
+  }
+  const s = String(val).trim();
+  if (s === '') return null;
+  const n = parseFloat(s);
+  return Number.isFinite(n) ? n : undefined;
+}, z.union([z.null(), z.number().min(0, 'El gasto no puede ser negativo')]));
+
 // Donante
 export const donanteSchema = z.object({
   nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres').max(200),
@@ -95,9 +107,7 @@ export const proyectoSchema = z.object({
   titulo: z.string().min(3, 'El título debe tener al menos 3 caracteres').max(200),
   descripcion: z.string().min(10, 'La descripción debe tener al menos 10 caracteres').max(2000),
   fecha: z.string().or(z.date()).transform((val) => new Date(val)),
-  gastoTotal: z.number().positive('El gasto debe ser mayor a 0').or(
-    z.string().transform((val) => parseFloat(val))
-  ),
+  gastoTotal: optionalGastoTotal,
   meta: z.number().positive('La meta debe ser mayor a 0').or(
     z.string().transform((val) => parseFloat(val))
   ).optional().nullable(),

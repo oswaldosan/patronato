@@ -18,6 +18,7 @@
 		"db:migrate-donaciones": "npx tsx prisma/migrate-donaciones-materiales.ts",
 		"db:migrate-proyectos-v2": "npx tsx prisma/migrate-proyectos-v2.ts",
 		"db:migrate-solicitudes": "npx tsx prisma/migrate-solicitudes.ts",
+		"db:migrate-proyecto-foto4-gasto": "npx tsx prisma/migrate-proyecto-foto4-gasto.ts",
 		"db:studio": "prisma studio"
 	},
 	"prisma": {

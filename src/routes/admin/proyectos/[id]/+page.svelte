@@ -1,7 +1,7 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import Badge from '$lib/components/Badge.svelte';
-  import { formatCurrency, formatDateTime } from '$lib/utils/format';
+  import { formatCurrency, formatCurrencyOptional, formatDateTime } from '$lib/utils/format';
 
   let { data, form } = $props();
 
@@ -28,6 +28,7 @@
     if (index === 1) return data.proyecto.foto1;
     if (index === 2) return data.proyecto.foto2;
     if (index === 3) return data.proyecto.foto3;
+    if (index === 4) return data.proyecto.foto4;
     return null;
   }
 </script>
@@ -120,16 +121,19 @@
             />
           </div>
           <div>
-            <label for="gastoTotal" class="label">Gasto total *</label>
+            <label for="gastoTotal" class="label">
+              Gasto total
+              <span class="text-slate-400 font-normal">(opcional — editable cuando cierres cifras)</span>
+            </label>
             <input
               type="number"
               id="gastoTotal"
               name="gastoTotal"
               step="0.01"
-              min="0.01"
-              value={data.proyecto.gastoTotal}
+              min="0"
+              value={data.proyecto.gastoTotal ?? ''}
               class="input"
-              required
+              placeholder="Vacío hasta que definas el total"
             />
           </div>
         </div>
@@ -155,9 +159,9 @@
         </div>
 
         <div>
-          <span class="label mb-3">Fotografías</span>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {#each [1, 2, 3] as i}
+          <span class="label mb-3">Fotografías (opcional, hasta 4)</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {#each [1, 2, 3, 4] as i}
               <div>
                 <label
                   for="foto{i}"
@@ -202,7 +206,7 @@
         <div class="space-y-4 text-sm">
           <div>
             <p class="text-slate-500">Gasto total</p>
-            <p class="text-2xl font-bold text-primary-700">{formatCurrency(data.proyecto.gastoTotal)}</p>
+            <p class="text-2xl font-bold text-primary-700">{formatCurrencyOptional(data.proyecto.gastoTotal)}</p>
           </div>
           {#if data.proyecto.meta}
             <div>

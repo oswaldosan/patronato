@@ -17,10 +17,11 @@ export const load: PageServerLoad = async ({ params }) => {
       titulo: proyecto.titulo,
       descripcion: proyecto.descripcion,
       fecha: proyecto.fecha.toISOString(),
-      gastoTotal: proyecto.gastoTotal.toNumber(),
+      gastoTotal: proyecto.gastoTotal?.toNumber() ?? null,
       foto1: proyecto.foto1,
       foto2: proyecto.foto2,
       foto3: proyecto.foto3,
+      foto4: proyecto.foto4,
     },
   };
 };

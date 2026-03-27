@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { formatCurrency, formatDate } from '$lib/utils/format';
+  import { formatCurrencyOptional, formatDate } from '$lib/utils/format';
 
   let { data } = $props();
 </script>
@@ -81,7 +81,7 @@
               <div class="flex items-center justify-between pt-4 border-t border-slate-100">
                 <div>
                   <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Inversión</p>
-                  <p class="text-xl font-display font-bold text-primary-700">{formatCurrency(proyecto.gastoTotal)}</p>
+                  <p class="text-xl font-display font-bold text-primary-700">{formatCurrencyOptional(proyecto.gastoTotal)}</p>
                 </div>
                 <span class="text-primary-600 group-hover:translate-x-1 transition-transform duration-300">
                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

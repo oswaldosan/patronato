@@ -4,7 +4,7 @@
   let { form } = $props();
 
   let loading = $state(false);
-  let previews: (string | null)[] = $state([null, null, null]);
+  let previews: (string | null)[] = $state([null, null, null, null]);
 
   function handleFileChange(index: number, event: Event) {
     const input = event.target as HTMLInputElement;
@@ -89,17 +89,19 @@
         />
       </div>
       <div>
-        <label for="gastoTotal" class="label">Gasto total *</label>
+        <label for="gastoTotal" class="label">
+          Gasto total
+          <span class="text-slate-400 font-normal">(opcional — puedes registrarlo al cierre)</span>
+        </label>
         <input
           type="number"
           id="gastoTotal"
           name="gastoTotal"
           step="0.01"
-          min="0.01"
+          min="0"
           value={form?.data?.gastoTotal ?? ''}
           class="input"
-          placeholder="0.00"
-          required
+          placeholder="Dejar vacío si aún no aplica"
         />
       </div>
     </div>
@@ -125,9 +127,9 @@
     </div>
 
     <div>
-      <span class="label mb-3">Fotografías (máximo 3)</span>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {#each [0, 1, 2] as i}
+      <span class="label mb-3">Fotografías (máximo 4, opcional)</span>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {#each [0, 1, 2, 3] as i}
           <div>
             <label
               for="foto{i + 1}"

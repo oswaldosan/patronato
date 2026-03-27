@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { formatCurrency, formatDate } from '$lib/utils/format';
+  import { formatCurrencyOptional, formatDate } from '$lib/utils/format';
 
   let { data } = $props();
 
-  const fotos = $derived([data.proyecto.foto1, data.proyecto.foto2, data.proyecto.foto3].filter(Boolean) as string[]);
+  const fotos = $derived(
+    [data.proyecto.foto1, data.proyecto.foto2, data.proyecto.foto3, data.proyecto.foto4].filter(Boolean) as string[]
+  );
   let selectedFoto = $state(0);
 </script>
 
@@ -67,7 +69,7 @@
         </div>
         <div>
           <p class="text-sm text-primary-600 font-medium">Inversión total del proyecto</p>
-          <p class="text-2xl font-display font-bold text-primary-800">{formatCurrency(data.proyecto.gastoTotal)}</p>
+          <p class="text-2xl font-display font-bold text-primary-800">{formatCurrencyOptional(data.proyecto.gastoTotal)}</p>
         </div>
       </div>
 

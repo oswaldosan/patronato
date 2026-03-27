@@ -33,12 +33,13 @@ export const load: PageServerLoad = async ({ params }) => {
       titulo: proyecto.titulo,
       descripcion: proyecto.descripcion,
       fecha: proyecto.fecha.toISOString().split('T')[0],
-      gastoTotal: proyecto.gastoTotal.toNumber(),
+      gastoTotal: proyecto.gastoTotal?.toNumber() ?? null,
       meta: proyecto.meta?.toNumber() ?? null,
       activo: proyecto.activo,
       foto1: proyecto.foto1,
       foto2: proyecto.foto2,
       foto3: proyecto.foto3,
+      foto4: proyecto.foto4,
       publicado: proyecto.publicado,
       createdAt: proyecto.createdAt.toISOString(),
       updatedAt: proyecto.updatedAt.toISOString(),
@@ -77,7 +78,7 @@ export const actions: Actions = {
     });
 
     const fotoUpdates: Record<string, string | null> = {};
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
       const file = formData.get(`foto${i}`) as File | null;
       if (file && file.size > 0) {
         try {
@@ -223,7 +224,7 @@ export const actions: Actions = {
     });
 
     if (proyecto) {
-      for (const foto of [proyecto.foto1, proyecto.foto2, proyecto.foto3]) {
+      for (const foto of [proyecto.foto1, proyecto.foto2, proyecto.foto3, proyecto.foto4]) {
         if (foto) await deleteUploadedFile(foto);
       }
     }

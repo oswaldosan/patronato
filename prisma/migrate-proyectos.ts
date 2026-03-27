@@ -15,7 +15,7 @@ async function main() {
         "titulo" TEXT NOT NULL,
         "descripcion" TEXT NOT NULL,
         "fecha" TIMESTAMP(3) NOT NULL,
-        "gastoTotal" DECIMAL(14,2) NOT NULL,
+        "gastoTotal" DECIMAL(14,2),
         "foto1" TEXT,
         "foto2" TEXT,
         "foto3" TEXT,

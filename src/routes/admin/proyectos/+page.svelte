@@ -2,7 +2,7 @@
   import { goto } from '$app/navigation';
   import Badge from '$lib/components/Badge.svelte';
   import EmptyState from '$lib/components/EmptyState.svelte';
-  import { formatCurrency, formatDateShort } from '$lib/utils/format';
+  import { formatCurrency, formatCurrencyOptional, formatDateShort } from '$lib/utils/format';
 
   let { data } = $props();
 
@@ -99,7 +99,7 @@
             </h3>
             <p class="text-sm text-slate-500 line-clamp-2 mb-3">{proyecto.descripcion}</p>
             <div class="flex items-center justify-between">
-              <p class="text-lg font-display font-bold text-primary-700">{formatCurrency(proyecto.gastoTotal)}</p>
+              <p class="text-lg font-display font-bold text-primary-700">{formatCurrencyOptional(proyecto.gastoTotal)}</p>
               {#if proyecto.meta}
                 <p class="text-xs text-slate-500">Meta: {formatCurrency(proyecto.meta)}</p>
               {/if}

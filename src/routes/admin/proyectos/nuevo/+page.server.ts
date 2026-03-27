@@ -5,6 +5,8 @@ import { proyectoSchema } from '$lib/validations';
 import { saveUploadedFile } from '$lib/server/uploads';
 import type { Actions } from './$types';
 
+const FOTO_COUNT = 4;
+
 export const actions: Actions = {
   default: async ({ request, locals }) => {
     const formData = await request.formData();
@@ -25,13 +27,12 @@ export const actions: Actions = {
       return fail(400, { error: message, data });
     }
 
-    const fotos: string[] = [];
-    for (let i = 1; i <= 3; i++) {
+    const slots: (string | null)[] = [null, null, null, null];
+    for (let i = 1; i <= FOTO_COUNT; i++) {
       const file = formData.get(`foto${i}`) as File | null;
       if (file && file.size > 0) {
         try {
-          const url = await saveUploadedFile(file, 'proyectos');
-          fotos.push(url);
+          slots[i - 1] = await saveUploadedFile(file, 'proyectos');
         } catch (e) {
           const msg = e instanceof Error ? e.message : 'Error al subir imagen';
           return fail(400, { error: msg, data });
@@ -46,11 +47,13 @@ export const actions: Actions = {
           titulo: result.data.titulo,
           descripcion: result.data.descripcion,
           fecha: result.data.fecha,
-          gastoTotal: result.data.gastoTotal,
+          gastoTotal: result.data.gastoTotal ?? null,
           meta: result.data.meta ?? null,
-          foto1: fotos[0] || null,
-          foto2: fotos[1] || null,
-          foto3: fotos[2] || null,
+          publicado: false,
+          foto1: slots[0],
+          foto2: slots[1],
+          foto3: slots[2],
+          foto4: slots[3],
         },
       });
     } catch (e) {
