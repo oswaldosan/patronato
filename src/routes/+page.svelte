@@ -195,8 +195,8 @@
           value={data.stats.balance}
           icon="📊"
           isCurrency={true}
-          color="green"
-          subtitle="Disponible"
+          color={data.stats.balance >= 0 ? 'green' : 'red'}
+          subtitle={data.stats.balance >= 0 ? 'Disponible' : 'Déficit'}
         />
       </div>
       <div class="animate-slide-up" style="animation-delay: 0.4s">

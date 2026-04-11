@@ -34,7 +34,7 @@
   <div class="flex items-start justify-between">
     <div class="flex-1">
       <p class="text-sm font-medium text-slate-500 mb-1">{title}</p>
-      <p class="stat-value text-gradient bg-gradient-to-r {colorClasses[color]}">
+      <p class="stat-value text-gradient bg-gradient-to-r {colorClasses[color]} whitespace-nowrap">
         {isCurrency ? formatCurrency(value) : value}
       </p>
       {#if subtitle}
