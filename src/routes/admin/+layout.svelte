@@ -13,6 +13,7 @@
     { href: '/admin/solicitudes', label: 'Solicitudes', icon: '📩' },
     { href: '/admin/donaciones-materiales', label: 'Materiales', icon: '📦' },
     { href: '/admin/egresos', label: 'Gastos', icon: '📤' },
+    { href: '/admin/proveedores', label: 'Proveedores', icon: '🏢' },
     { href: '/admin/proyectos', label: 'Proyectos', icon: '🏗️' },
     { href: '/admin/reportes', label: 'Reportes', icon: '📑' },
     { href: '/admin/auditoria', label: 'Auditoría', icon: '📋' },
