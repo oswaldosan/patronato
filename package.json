@@ -49,6 +49,7 @@
 		"jsonwebtoken": "^9.0.3",
 		"pg": "^8.17.1",
 		"prisma": "^6.19.2",
+		"xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
 		"zod": "^4.3.5"
 	}
 }

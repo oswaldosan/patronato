@@ -23,6 +23,7 @@
           <li><a href="/movimientos" class="hover:text-accent-400 transition-colors">Aportes</a></li>
           <li><a href="/egresos" class="hover:text-accent-400 transition-colors">Gastos</a></li>
           <li><a href="/proyectos" class="hover:text-accent-400 transition-colors">Proyectos</a></li>
+          <li><a href="/eventos" class="hover:text-accent-400 transition-colors">Eventos</a></li>
           <li><a href="/buscar" class="hover:text-accent-400 transition-colors">Buscar Aportante</a></li>
           <li><a href="/estadisticas" class="hover:text-accent-400 transition-colors">Estadísticas</a></li>
         </ul>

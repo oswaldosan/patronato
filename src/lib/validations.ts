@@ -1,5 +1,13 @@
 import { z } from 'zod';
 
+/** Monto desde formulario (string o number) validado como positivo. */
+const montoPositivo = (mensaje: string) =>
+  z
+    .string()
+    .or(z.number())
+    .transform((val) => (typeof val === 'string' ? parseFloat(val) : val))
+    .pipe(z.number().positive(mensaje));
+
 /** Monto opcional desde formulario: vacío → null; si viene, ≥ 0. */
 const optionalGastoTotal = z.preprocess((val) => {
   if (val === '' || val === null || val === undefined) return null;
@@ -48,9 +56,7 @@ export const aporteSchema = z.object({
   donanteId: z.string().cuid('ID de aportante inválido'),
   rubroId: z.string().cuid('ID de rubro inválido'),
   fecha: z.string().or(z.date()).transform((val) => new Date(val)),
-  monto: z.number().positive('El monto debe ser mayor a 0').or(
-    z.string().transform((val) => parseFloat(val))
-  ),
+  monto: montoPositivo('El monto debe ser mayor a 0'),
   metodo: z.enum(['DEPOSITO', 'TRANSFERENCIA', 'EFECTIVO', 'CHEQUE', 'OTRO']),
   referencia: z.string().max(100).optional().nullable(),
   comentario: z.string().max(500).optional().nullable(),
@@ -64,9 +70,7 @@ export const aporteUpdateSchema = aporteSchema.partial();
 // Egreso
 export const egresoSchema = z.object({
   fecha: z.string().or(z.date()).transform((val) => new Date(val)),
-  monto: z.number().positive('El monto debe ser mayor a 0').or(
-    z.string().transform((val) => parseFloat(val))
-  ),
+  monto: montoPositivo('El monto debe ser mayor a 0'),
   concepto: z.string().min(2, 'El concepto debe tener al menos 2 caracteres').max(300),
   rubroId: z.string().cuid('ID de rubro inválido'),
   proveedorId: z.string().cuid('ID de proveedor inválido').optional().nullable(),
@@ -108,9 +112,7 @@ export const proyectoSchema = z.object({
   descripcion: z.string().min(10, 'La descripción debe tener al menos 10 caracteres').max(2000),
   fecha: z.string().or(z.date()).transform((val) => new Date(val)),
   gastoTotal: optionalGastoTotal,
-  meta: z.number().positive('La meta debe ser mayor a 0').or(
-    z.string().transform((val) => parseFloat(val))
-  ).optional().nullable(),
+  meta: montoPositivo('La meta debe ser mayor a 0').optional().nullable(),
 });
 
 export const proyectoUpdateSchema = proyectoSchema.partial();
@@ -120,9 +122,7 @@ export const donacionMaterialSchema = z.object({
   donanteId: z.string().cuid('ID de aportante inválido'),
   descripcion: z.string().min(3, 'La descripción debe tener al menos 3 caracteres').max(500),
   cantidad: z.string().max(100).optional().nullable(),
-  valorEstimado: z.number().positive('El valor estimado debe ser mayor a 0').or(
-    z.string().transform((val) => parseFloat(val))
-  ),
+  valorEstimado: montoPositivo('El valor estimado debe ser mayor a 0'),
   fecha: z.string().or(z.date()).transform((val) => new Date(val)),
   notas: z.string().max(1000).optional().nullable(),
   evidencia: z.string().url().optional().nullable(),
@@ -130,6 +130,34 @@ export const donacionMaterialSchema = z.object({
 });
 
 export const donacionMaterialUpdateSchema = donacionMaterialSchema.partial();
+
+// Evento
+export const eventoSchema = z.object({
+  nombre: z.string().min(3, 'El nombre debe tener al menos 3 caracteres').max(200),
+  descripcion: z.string().max(2000).optional().nullable(),
+  fecha: z.string().or(z.date()).transform((val) => new Date(val)),
+  lugar: z.string().max(300).optional().nullable(),
+});
+
+export const eventoUpdateSchema = eventoSchema.partial();
+
+// Ingreso de evento
+export const ingresoEventoSchema = z.object({
+  concepto: z.string().min(2, 'El concepto debe tener al menos 2 caracteres').max(300),
+  monto: montoPositivo('El monto debe ser mayor a 0'),
+  metodoPago: z.enum(['DEPOSITO', 'TRANSFERENCIA', 'EFECTIVO', 'CHEQUE', 'OTRO']),
+  fecha: z.string().or(z.date()).transform((val) => new Date(val)),
+  notas: z.string().max(1000).optional().nullable(),
+});
+
+// Gasto de evento
+export const gastoEventoSchema = z.object({
+  concepto: z.string().min(2, 'El concepto debe tener al menos 2 caracteres').max(300),
+  monto: montoPositivo('El monto debe ser mayor a 0'),
+  proveedorId: z.string().cuid('ID de proveedor inválido').optional().nullable(),
+  fecha: z.string().or(z.date()).transform((val) => new Date(val)),
+  notas: z.string().max(1000).optional().nullable(),
+});
 
 // Búsqueda
 export const searchSchema = z.object({
@@ -144,4 +172,7 @@ export type EgresoInput = z.infer<typeof egresoSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
 export type UserCreateInput = z.infer<typeof userCreateSchema>;
 export type ProyectoInput = z.infer<typeof proyectoSchema>;
+export type EventoInput = z.infer<typeof eventoSchema>;
+export type IngresoEventoInput = z.infer<typeof ingresoEventoSchema>;
+export type GastoEventoInput = z.infer<typeof gastoEventoSchema>;
 export type DonacionMaterialInput = z.infer<typeof donacionMaterialSchema>;

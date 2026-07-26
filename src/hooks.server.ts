@@ -20,5 +20,17 @@ export const handle: Handle = async ({ event, resolve }) => {
     }
   }
 
+  if (
+    event.url.pathname.startsWith('/admin') &&
+    event.url.pathname !== '/admin/login' &&
+    !event.locals.user &&
+    event.request.method !== 'GET'
+  ) {
+    return new Response(JSON.stringify({ message: 'No autorizado' }), {
+      status: 403,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
   return resolve(event);
 };
