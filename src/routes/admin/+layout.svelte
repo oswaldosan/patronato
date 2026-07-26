@@ -15,6 +15,7 @@
     { href: '/admin/egresos', label: 'Gastos', icon: '📤' },
     { href: '/admin/proveedores', label: 'Proveedores', icon: '🏢' },
     { href: '/admin/proyectos', label: 'Proyectos', icon: '🏗️' },
+    { href: '/admin/eventos', label: 'Eventos', icon: '🎉' },
     { href: '/admin/reportes', label: 'Reportes', icon: '📑' },
     { href: '/admin/auditoria', label: 'Auditoría', icon: '📋' },
   ];

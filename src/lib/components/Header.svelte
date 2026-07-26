@@ -9,6 +9,7 @@
     { href: '/movimientos', label: 'Aportes' },
     { href: '/egresos', label: 'Gastos' },
     { href: '/proyectos', label: 'Proyectos' },
+    { href: '/eventos', label: 'Eventos' },
     { href: '/aportantes', label: 'Aportantes' },
     { href: '/buscar', label: 'Buscar Aportante' },
     { href: '/reportes', label: 'Reportes' },

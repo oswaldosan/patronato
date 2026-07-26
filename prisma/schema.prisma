@@ -158,7 +158,71 @@ model Proveedor {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  egresos Egreso[]
+  egresos       Egreso[]
+  gastosEventos GastoEvento[]
+}
+
+// Evento de recaudación (fiestas, actividades)
+// Su contabilidad es independiente de Aporte/Egreso
+model Evento {
+  id          String   @id @default(cuid())
+  nombre      String
+  descripcion String?  @db.Text
+  fecha       DateTime
+  lugar       String?
+  foto1       String?
+  excelNombre      String?
+  excelData        Json?
+  excelActualizado DateTime?
+  publicado   Boolean  @default(false)
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  ingresos IngresoEvento[]
+  gastos   GastoEvento[]
+
+  @@index([fecha])
+  @@index([publicado])
+  @@index([activo])
+}
+
+// Ingreso de un evento
+model IngresoEvento {
+  id         String     @id @default(cuid())
+  eventoId   String
+  concepto   String
+  monto      Decimal    @db.Decimal(14, 2)
+  metodoPago MetodoPago
+  fecha      DateTime   @default(now())
+  notas      String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  evento Evento @relation(fields: [eventoId], references: [id])
+
+  @@index([eventoId])
+  @@index([fecha])
+}
+
+// Gasto de un evento
+model GastoEvento {
+  id          String   @id @default(cuid())
+  eventoId    String
+  concepto    String
+  monto       Decimal  @db.Decimal(14, 2)
+  proveedorId String?
+  fecha       DateTime @default(now())
+  notas       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  evento    Evento     @relation(fields: [eventoId], references: [id])
+  proveedor Proveedor? @relation(fields: [proveedorId], references: [id])
+
+  @@index([eventoId])
+  @@index([proveedorId])
+  @@index([fecha])
 }
 
 // Log de auditoría
