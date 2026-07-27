@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { formatCurrency, formatDate, formatDateShort } from '$lib/utils/format';
+  import { formatDate, formatDateShort } from '$lib/utils/format';
 
   let { data } = $props();
 
@@ -62,23 +62,6 @@
       <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 mb-6 leading-tight">
         {data.evento.nombre}
       </h1>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-        <div class="card p-5">
-          <p class="text-sm text-slate-500 mb-1">Recaudado</p>
-          <p class="text-2xl font-display font-bold text-green-600">{formatCurrency(data.evento.totalRecaudado)}</p>
-        </div>
-        <div class="card p-5">
-          <p class="text-sm text-slate-500 mb-1">Gastos</p>
-          <p class="text-2xl font-display font-bold text-red-600">{formatCurrency(data.evento.totalGastos)}</p>
-        </div>
-        <div class="card p-5 bg-primary-50/50 border-primary-200">
-          <p class="text-sm text-primary-600 font-medium mb-1">Recaudación neta</p>
-          <p class="text-2xl font-display font-bold {data.evento.neto >= 0 ? 'text-primary-800' : 'text-red-700'}">
-            {formatCurrency(data.evento.neto)}
-          </p>
-        </div>
-      </div>
 
       {#if data.evento.descripcion}
         <div class="prose prose-slate max-w-none mb-12">

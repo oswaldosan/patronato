@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { formatCurrency, formatDate } from '$lib/utils/format';
+  import { formatDate } from '$lib/utils/format';
 
   let { data } = $props();
 </script>
@@ -90,21 +90,11 @@
                 </p>
               {/if}
 
-              <div class="pt-4 border-t border-slate-100 space-y-2 text-sm">
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-500">Recaudado</span>
-                  <span class="font-semibold text-green-600">{formatCurrency(evento.totalRecaudado)}</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-500">Gastos</span>
-                  <span class="font-semibold text-red-600">{formatCurrency(evento.totalGastos)}</span>
-                </div>
-                <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-                  <span class="text-xs text-slate-400 uppercase tracking-wider font-medium">Recaudación neta</span>
-                  <span class="text-xl font-display font-bold {evento.neto >= 0 ? 'text-primary-700' : 'text-red-700'}">
-                    {formatCurrency(evento.neto)}
-                  </span>
-                </div>
+              <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
+                <span class="text-slate-500">Ver desglose de ingresos y gastos</span>
+                <svg class="w-4 h-4 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
               </div>
             </div>
           </a>
